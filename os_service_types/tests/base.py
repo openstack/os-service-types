@@ -15,9 +15,196 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+import copy
+import datetime
+
+import keystoneauth1.session
 from oslotest import base
+from requests_mock.contrib import fixture as rm_fixture
+
+import os_service_types.service_types
 
 
 class TestCase(base.BaseTestCase):
+    """Base test case class before singleton protection is added."""
 
-    """Test case base class for all unit tests."""
+    def setUp(self):
+        super(TestCase, self).setUp()
+
+        # use keystoneauth1 to get a Sessiom with no auth information
+        self.session = keystoneauth1.session.Session()
+
+        self.set_adapter()
+
+        self.builtin_content = os_service_types.service_types.BUILTIN_DATA
+        self.builtin_version = self.builtin_content['version']
+
+        # Set up copies of the data so that we can verify that we got the
+        # copy of it we think we should.
+        self.remote_version = datetime.datetime.utcnow().isoformat()
+        self.remote_content = copy.deepcopy(self.builtin_content)
+        self.remote_content['version'] = self.remote_version
+
+    def set_adapter(self):
+        # Set up a requests_mock fixture for all HTTP traffic
+        self.adapter = self.useFixture(rm_fixture.Fixture())
+
+
+class ServiceDataMixin(object):
+
+    scenarios = [
+        ('compute', dict(
+            service_type='compute', official='compute', aliases=[],
+            all_types=['compute'],
+            api_reference='compute', api_reference_project=None,
+            is_known=True, is_alias=False, is_official=True, project='nova')),
+        ('volumev2', dict(
+            service_type='volumev2', official='block-storage', aliases=[],
+            all_types=['block-storage', 'volume', 'volumev2', 'volumev3'],
+            api_reference='block-storage', api_reference_project=None,
+            is_known=True, is_alias=True, is_official=False,
+            project='cinder')),
+        ('volumev3', dict(
+            service_type='volumev3', official='block-storage', aliases=[],
+            all_types=['block-storage', 'volume', 'volumev2', 'volumev3'],
+            api_reference='block-storage', api_reference_project=None,
+            is_known=True, is_alias=True, is_official=False,
+            project='cinder')),
+        ('block-storage', dict(
+            service_type='block-storage', official='block-storage',
+            all_types=['block-storage', 'volume', 'volumev2', 'volumev3'],
+            api_reference='block-storage', api_reference_project=None,
+            aliases=['volume', 'volumev2', 'volumev3'],
+            is_known=True, is_alias=False, is_official=True,
+            project='cinder')),
+        ('network', dict(
+            service_type='network', official='network', aliases=[],
+            all_types=['network'],
+            api_reference='networking', api_reference_project='neutron-lib',
+            is_known=True, is_alias=False, is_official=True,
+            project='neutron')),
+        ('missing', dict(
+            service_type='missing', official=None,
+            aliases=[],
+            all_types=['missing'],
+            api_reference=None, api_reference_project=None,
+            is_known=False, is_alias=False, is_official=False,
+            project=None)),
+    ]
+
+    def test_get_service_type(self):
+        if self.official:
+            self.assertEqual(
+                self.official,
+                self.service_types.get_service_type(self.service_type))
+        else:
+            self.assertIsNone(
+                self.service_types.get_service_type(self.service_type))
+
+    def test_get_aliases(self):
+        self.assertEqual(
+            self.aliases,
+            self.service_types.get_aliases(self.service_type))
+
+    def test_is_known(self):
+        self.assertEqual(
+            self.is_known,
+            self.service_types.is_known(self.service_type))
+
+    def test_is_alias(self):
+        self.assertEqual(
+            self.is_alias,
+            self.service_types.is_alias(self.service_type))
+
+    def test_is_official(self):
+        self.assertEqual(
+            self.is_official,
+            self.service_types.is_official(self.service_type))
+
+    def test_get_project_name(self):
+        if self.project:
+            self.assertEqual(
+                self.project,
+                self.service_types.get_project_name(self.service_type))
+        else:
+            self.assertIsNone(
+                self.service_types.get_project_name(self.service_type))
+
+    def test_get_service_data(self):
+        service_data = self.service_types.get_service_data(self.service_type)
+        # TODO(mordred) Once all the docs have been aligned, remove
+        # self.api_reference and replace with self.service_type
+        api_url = 'http://developer.openstack.org/api-ref/{api_reference}/'
+
+        # Tests self.official here, since we expect to get data back for all
+        # official projects, regardless of service_type being an alias or not
+        if not self.official:
+            self.assertIsNone(service_data)
+        else:
+            self.assertIsNotNone(service_data)
+            self.assertEqual(
+                'openstack/{project}'.format(project=self.project),
+                service_data['project'])
+            self.assertEqual(self.official, service_data['service_type'])
+            self.assertEqual(
+                api_url.format(api_reference=self.api_reference),
+                service_data['api_reference'])
+
+    def test_get_official_service_data(self):
+        service_data = self.service_types.get_official_service_data(
+            self.service_type)
+        # TODO(mordred) Once all the docs have been aligned, remove
+        # self.api_reference and replace with self.service_type
+        api_url = 'http://developer.openstack.org/api-ref/{api_reference}/'
+
+        # Tests self.is_official here, since we expect only get data back for
+        # official projects.
+        if not self.is_official:
+            self.assertIsNone(service_data)
+        else:
+            self.assertIsNotNone(service_data)
+            self.assertEqual(
+                'openstack/{project}'.format(project=self.project),
+                service_data['project'])
+            self.assertEqual(self.official, service_data['service_type'])
+            self.assertEqual(
+                api_url.format(api_reference=self.api_reference),
+                service_data['api_reference'])
+
+    def test_empty_project_error(self):
+        if not self.project:
+            self.assertRaises(
+                ValueError,
+                self.service_types.get_service_data_for_project,
+                self.project)
+
+    def test_get_service_data_for_project(self):
+        if not self.project:
+            self.skipTest("Empty project is invalid but tested elsewhere.")
+            return
+
+        service_data = self.service_types.get_service_data_for_project(
+            self.project)
+        # TODO(mordred) Once all the docs have been aligned, remove
+        # self.api_reference and replace with self.service_type
+        api_url = 'http://developer.openstack.org/api-ref/{api_reference}/'
+
+        self.assertIsNotNone(service_data)
+        if self.api_reference_project:
+            self.assertEqual(
+                'openstack/{api_reference_project}'.format(
+                    api_reference_project=self.api_reference_project),
+                service_data['api_reference_project'])
+        else:
+            self.assertEqual(
+                'openstack/{project}'.format(project=self.project),
+                service_data['project'])
+        self.assertEqual(self.official, service_data['service_type'])
+        self.assertEqual(
+            api_url.format(api_reference=self.api_reference),
+            service_data['api_reference'])
+
+    def test_get_all_types(self):
+        self.assertEqual(
+            self.all_types,
+            self.service_types.get_all_types(self.service_type))

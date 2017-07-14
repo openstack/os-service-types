@@ -1,0 +1,5 @@
+---
+features:
+  - Added ServiceTypes class, which is the primary entry
+    point for Python developers who need access to the
+    OpenStack Service Types Authority data.

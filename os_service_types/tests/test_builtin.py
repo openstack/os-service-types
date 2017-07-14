@@ -13,16 +13,26 @@
 # under the License.
 
 """
-test_os_service_types
-----------------------------------
+test_builtin
+------------
 
-Tests for `os_service_types` module.
+Tests for `ServiceTypes` class builtin data.
+
+oslotest sets up a TempHomeDir for us, so there should be no ~/.cache files
+available in these tests.
 """
+from testscenarios import load_tests_apply_scenarios as load_tests  # noqa
 
+import os_service_types
 from os_service_types.tests import base
 
 
-class TestOs_service_types(base.TestCase):
+class TestBuiltin(base.TestCase, base.ServiceDataMixin):
 
-    def test_something(self):
-        pass
+    def setUp(self):
+        super(TestBuiltin, self).setUp()
+        # Make an object with no network access
+        self.service_types = os_service_types.ServiceTypes()
+
+    def test_builtin_version(self):
+        self.assertEqual(self.builtin_version, self.service_types.version)

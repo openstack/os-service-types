@@ -11,8 +11,10 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
+__all__ = ['__version__', 'ServiceTypes']
 
 import pbr.version
 
+from os_service_types.service_types import ServiceTypes  # flake8: noqa
 
 __version__ = pbr.version.VersionInfo('os-service-types').version_string()

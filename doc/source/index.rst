@@ -15,11 +15,10 @@ Contents:
    install/index
    library/index
    contributor/index
+   reference/index
 
 Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
-
