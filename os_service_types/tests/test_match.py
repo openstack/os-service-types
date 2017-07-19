@@ -54,9 +54,6 @@ class TestMatch(base.TestCase):
         self.service_types = os_service_types.ServiceTypes()
 
     def test_is_match(self):
-        if self.is_match:
-            self.assertTrue(
-                self.service_types.is_match(self.requested, self.found))
-        else:
-            self.assertFalse(
-                self.service_types.is_match(self.requested, self.found))
+        self.assertEqual(
+            self.is_match,
+            self.service_types.is_match(self.requested, self.found))

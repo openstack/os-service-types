@@ -39,9 +39,15 @@ class ServiceTypes(object):
         remotely the builtin data will be returned as a fallback. only_remote
         will cause remote failures to raise an error instead of falling back.
         Optional, defaults to False.
+    :raises ValueError: If session is None and only_remote is True
+    :raises IOError: If session is given and only_remote is True and there is
+        an error fetching remote data.
     """
 
     def __init__(self, session=None, only_remote=False):
+        if not session and only_remote:
+            raise ValueError(
+                "only_remote was requested but no Session was provided.")
         self._service_types_data = BUILTIN_DATA
         if session:
             try:
@@ -65,10 +71,8 @@ class ServiceTypes(object):
         "Convert repo name to project name."
         if name is None:
             raise ValueError("Empty project name is not allowed")
-        if name.startswith('openstack/'):
-            # Handle openstack/ prefix going away from STA data
-            return name.rpartition('/')[-1]
-        return name
+        # Handle openstack/ prefix going away from STA data
+        return name.rpartition('/')[-1]
 
     @property
     def url(self):
@@ -193,7 +197,7 @@ class ServiceTypes(object):
         return self._service_types_data['reverse'].get(service_type)
 
     def get_all_types(self, service_type):
-        """Get a list of official type and all known aliases.
+        """Get a list of official types and all known aliases.
 
         :param str service_type: The service-type or alias to get data for.
         :returns dict: Service data for the service or None if not found.

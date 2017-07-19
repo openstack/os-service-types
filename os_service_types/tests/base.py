@@ -20,7 +20,6 @@ import datetime
 
 import keystoneauth1.session
 from oslotest import base
-from requests_mock.contrib import fixture as rm_fixture
 
 import os_service_types.service_types
 
@@ -34,8 +33,6 @@ class TestCase(base.BaseTestCase):
         # use keystoneauth1 to get a Sessiom with no auth information
         self.session = keystoneauth1.session.Session()
 
-        self.set_adapter()
-
         self.builtin_content = os_service_types.service_types.BUILTIN_DATA
         self.builtin_version = self.builtin_content['version']
 
@@ -44,10 +41,6 @@ class TestCase(base.BaseTestCase):
         self.remote_version = datetime.datetime.utcnow().isoformat()
         self.remote_content = copy.deepcopy(self.builtin_content)
         self.remote_content['version'] = self.remote_version
-
-    def set_adapter(self):
-        # Set up a requests_mock fixture for all HTTP traffic
-        self.adapter = self.useFixture(rm_fixture.Fixture())
 
 
 class ServiceDataMixin(object):
@@ -122,13 +115,9 @@ class ServiceDataMixin(object):
             self.service_types.is_official(self.service_type))
 
     def test_get_project_name(self):
-        if self.project:
-            self.assertEqual(
-                self.project,
-                self.service_types.get_project_name(self.service_type))
-        else:
-            self.assertIsNone(
-                self.service_types.get_project_name(self.service_type))
+        self.assertEqual(
+            self.project,
+            self.service_types.get_project_name(self.service_type))
 
     def test_get_service_data(self):
         service_data = self.service_types.get_service_data(self.service_type)
