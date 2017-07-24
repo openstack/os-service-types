@@ -142,9 +142,7 @@ class ServiceDataMixin(object):
             self.assertIsNone(service_data)
         else:
             self.assertIsNotNone(service_data)
-            self.assertEqual(
-                'openstack/{project}'.format(project=self.project),
-                service_data['project'])
+            self.assertEqual(self.project, service_data['project'])
             self.assertEqual(self.official, service_data['service_type'])
             self.assertEqual(
                 api_url.format(api_reference=self.api_reference),
@@ -163,9 +161,7 @@ class ServiceDataMixin(object):
             self.assertIsNone(service_data)
         else:
             self.assertIsNotNone(service_data)
-            self.assertEqual(
-                'openstack/{project}'.format(project=self.project),
-                service_data['project'])
+            self.assertEqual(self.project, service_data['project'])
             self.assertEqual(self.official, service_data['service_type'])
             self.assertEqual(
                 api_url.format(api_reference=self.api_reference),
@@ -192,13 +188,10 @@ class ServiceDataMixin(object):
         self.assertIsNotNone(service_data)
         if self.api_reference_project:
             self.assertEqual(
-                'openstack/{api_reference_project}'.format(
-                    api_reference_project=self.api_reference_project),
+                self.api_reference_project,
                 service_data['api_reference_project'])
         else:
-            self.assertEqual(
-                'openstack/{project}'.format(project=self.project),
-                service_data['project'])
+            self.assertEqual(self.project, service_data['project'])
         self.assertEqual(self.official, service_data['service_type'])
         self.assertEqual(
             api_url.format(api_reference=self.api_reference),
