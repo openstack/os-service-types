@@ -21,6 +21,7 @@ Tests for `ServiceTypes` class remote data.
 oslotest sets up a TempHomeDir for us, so there should be no ~/.cache files
 available in these tests.
 """
+from requests_mock.contrib import fixture as rm_fixture
 from testscenarios import load_tests_apply_scenarios as load_tests  # noqa
 
 import os_service_types
@@ -32,14 +33,16 @@ class TestRemote(base.TestCase, base.ServiceDataMixin):
 
     def setUp(self):
         super(TestRemote, self).setUp()
-        self.adapter.register_uri(
+        # Set up a requests_mock fixture for all HTTP traffic
+        adapter = self.useFixture(rm_fixture.Fixture())
+        adapter.register_uri(
             'GET', os_service_types.service_types.SERVICE_TYPES_URL,
             json=self.remote_content,
             headers={'etag': self.getUniqueString('etag')})
         # Make an object that fetches from the network
         self.service_types = os_service_types.ServiceTypes(
             session=self.session)
-        self.assertEqual(1, len(self.adapter.request_history))
+        self.assertEqual(1, len(adapter.request_history))
 
     def test_remote_version(self):
         self.assertEqual(self.remote_version, self.service_types.version)
