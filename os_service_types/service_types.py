@@ -17,6 +17,7 @@ __all__ = ['ServiceTypes']
 import copy
 
 import os_service_types.data
+from os_service_types import exc
 
 BUILTIN_DATA = os_service_types.data.read_data('service-types.json')
 SERVICE_TYPES_URL = "https://service-types.openstack.org/service-types.json"
@@ -39,16 +40,20 @@ class ServiceTypes(object):
         remotely the builtin data will be returned as a fallback. only_remote
         will cause remote failures to raise an error instead of falling back.
         Optional, defaults to False.
+    :param bool warn: Emit warnings when a non-official service_type is
+        provided. This provides an easy way for consuming applications to
+        warn users when they are using old types.
     :raises ValueError: If session is None and only_remote is True
     :raises IOError: If session is given and only_remote is True and there is
         an error fetching remote data.
     """
 
-    def __init__(self, session=None, only_remote=False):
+    def __init__(self, session=None, only_remote=False, warn=False):
         if not session and only_remote:
             raise ValueError(
                 "only_remote was requested but no Session was provided.")
         self._service_types_data = BUILTIN_DATA
+        self._warn = warn
         if session:
             try:
                 response = session.get(SERVICE_TYPES_URL)
@@ -194,7 +199,11 @@ class ServiceTypes(object):
         """
         if self.is_official(service_type):
             return service_type
-        return self._service_types_data['reverse'].get(service_type)
+        official = self._service_types_data['reverse'].get(service_type)
+        if self._warn:
+            exc.warn(
+                exc.AliasUsageWarning, given=service_type, official=official)
+        return official
 
     def get_all_types(self, service_type):
         """Get a list of official types and all known aliases.
