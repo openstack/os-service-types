@@ -66,6 +66,9 @@ class ServiceTypes(object):
 
         by_project = {}
         for s in self._service_types_data['services']:
+            # Skip secondary projects
+            if s.get('secondary', False):
+                continue
             for key in ['project', 'api_reference_project']:
                 name = s.get(key)
                 if name:
