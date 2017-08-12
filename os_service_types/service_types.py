@@ -64,17 +64,6 @@ class ServiceTypes(object):
                 if only_remote:
                     raise
 
-        by_project = {}
-        for s in self._service_types_data['services']:
-            # Skip secondary projects
-            if s.get('secondary', False):
-                continue
-            for key in ['project', 'api_reference_project']:
-                name = s.get(key)
-                if name:
-                    by_project[self._canonical_project_name(name)] = s
-        self._service_types_data['by_project'] = by_project
-
     def _canonical_project_name(self, name):
         "Convert repo name to project name."
         if name is None:
@@ -106,6 +95,24 @@ class ServiceTypes(object):
     def services(self):
         "Full service-type data listing."
         return copy.deepcopy(self._service_types_data['services'])
+
+    @property
+    def all_types_by_service_type(self):
+        "Mapping of official service type to official type and aliases."
+        return copy.deepcopy(
+            self._service_types_data['all_types_by_service_type'])
+
+    @property
+    def primary_service_by_project(self):
+        "Mapping of project name to the primary associated service."
+        return copy.deepcopy(
+            self._service_types_data['primary_service_by_project'])
+
+    @property
+    def service_types_by_project(self):
+        "Mapping of project name to a list of all associated service-types."
+        return copy.deepcopy(
+            self._service_types_data['service_types_by_project'])
 
     def get_official_service_data(self, service_type):
         """Get the service data for an official service_type.
@@ -216,10 +223,8 @@ class ServiceTypes(object):
         """
         if not self.is_known(service_type):
             return [service_type]
-        service_type = self.get_service_type(service_type)
-        ret = [service_type]
-        ret.extend(self.get_aliases(service_type))
-        return ret
+        return self.all_types_by_service_type[
+            self.get_service_type(service_type)]
 
     def get_project_name(self, service_type):
         """Return the OpenStack project name for a given service_type.
@@ -229,7 +234,7 @@ class ServiceTypes(object):
         """
         service = self.get_service_data(service_type)
         if service:
-            return self._canonical_project_name(service['project'])
+            return service['project']
         return None
 
     def get_service_data_for_project(self, project_name):
@@ -238,7 +243,23 @@ class ServiceTypes(object):
         :param name: A repository or project name in the form
             ``'openstack/{project}'`` or just ``'{project}'``.
         :type name: str
+        :raises ValueError: If project_name is None
         :returns: dict or None if not found
         """
-        key = self._canonical_project_name(project_name)
-        return self._service_types_data['by_project'].get(key)
+        project_name = self._canonical_project_name(project_name)
+        return self.primary_service_by_project.get(project_name)
+
+    def get_all_service_data_for_project(self, project_name):
+        """Return the information for every service associated with a project.
+
+        :param name: A repository or project name in the form
+            ``'openstack/{project}'`` or just ``'{project}'``.
+        :type name: str
+        :raises ValueError: If project_name is None
+        :returns: list of dicts
+        """
+        data = []
+        for service_type in self.service_types_by_project.get(
+                project_name, []):
+            data.append(self.get_service_data(service_type))
+        return data

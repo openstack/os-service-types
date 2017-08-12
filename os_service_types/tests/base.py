@@ -50,21 +50,21 @@ class ServiceDataMixin(object):
             service_type='compute', official='compute', aliases=[],
             all_types=['compute'],
             api_reference='compute', api_reference_project=None,
-            is_secondary=False,
+            is_secondary=False, all_services=['compute', 'placement'],
             is_known=True, is_alias=False, is_official=True, project='nova')),
         ('volumev2', dict(
             service_type='volumev2', official='block-storage', aliases=[],
             all_types=['block-storage', 'volumev3', 'volumev2', 'volume'],
             api_reference='block-storage', api_reference_project=None,
             is_known=True, is_alias=True, is_official=False,
-            is_secondary=False,
+            is_secondary=False, all_services=['block-storage'],
             project='cinder')),
         ('volumev3', dict(
             service_type='volumev3', official='block-storage', aliases=[],
             all_types=['block-storage', 'volumev3', 'volumev2', 'volume'],
             api_reference='block-storage', api_reference_project=None,
             is_known=True, is_alias=True, is_official=False,
-            is_secondary=False,
+            is_secondary=False, all_services=['block-storage'],
             project='cinder')),
         ('block-storage', dict(
             service_type='block-storage', official='block-storage',
@@ -72,24 +72,24 @@ class ServiceDataMixin(object):
             api_reference='block-storage', api_reference_project=None,
             aliases=['volumev3', 'volumev2', 'volume'],
             is_known=True, is_alias=False, is_official=True,
-            is_secondary=False,
+            is_secondary=False, all_services=['block-storage'],
             project='cinder')),
         ('network', dict(
             service_type='network', official='network', aliases=[],
             all_types=['network'],
             api_reference='networking', api_reference_project='neutron-lib',
             is_known=True, is_alias=False, is_official=True,
-            is_secondary=False,
+            is_secondary=False, all_services=['network'],
             project='neutron')),
         ('placement', dict(
             service_type='placement', official='placement', aliases=[],
-            all_types=['placement'],
+            all_types=['placement'], all_services=['compute', 'placement'],
             api_reference='placement', api_reference_project=None,
             is_known=True, is_alias=False, is_official=True, is_secondary=True,
             project='nova')),
         ('missing', dict(
             service_type='missing', official=None,
-            aliases=[],
+            aliases=[], all_services=[],
             all_types=['missing'],
             api_reference=None, api_reference_project=None,
             is_known=False, is_alias=False, is_official=False,
@@ -177,9 +177,7 @@ class ServiceDataMixin(object):
 
     def test_get_service_data_for_project(self):
         if self.is_secondary:
-            self.assertNotIn(
-                self.service_type,
-                self.service_types._service_types_data['by_project'].values())
+            self.skipTest("Secondary services have no project mapping")
             return
         elif not self.project:
             self.skipTest("Empty project is invalid but tested elsewhere.")
@@ -207,3 +205,15 @@ class ServiceDataMixin(object):
         self.assertEqual(
             self.all_types,
             self.service_types.get_all_types(self.service_type))
+
+    def test_all_get_service_data_for_project(self):
+        if not self.project:
+            self.skipTest("Empty project is invalid but tested elsewhere.")
+            return
+
+        all_data = self.service_types.get_all_service_data_for_project(
+            self.project)
+        for (index, data) in enumerate(all_data):
+            self.assertEqual(
+                data,
+                self.service_types.get_service_data(self.all_services[index]))
