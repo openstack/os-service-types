@@ -1,45 +1,665 @@
 {
-  "sha": "9d9cdb1b729cd80e89c01c95db20c30a0cb740ca",
-  "forward": {
-    "resource-cluster": [
+  "services": [
+    {
+      "project": "keystone",
+      "api_reference": "https://developer.openstack.org/api-ref/identity/",
+      "service_type": "identity"
+    },
+    {
+      "project": "nova",
+      "api_reference": "https://developer.openstack.org/api-ref/compute/",
+      "service_type": "compute"
+    },
+    {
+      "project": "glance",
+      "api_reference": "https://developer.openstack.org/api-ref/image/",
+      "service_type": "image"
+    },
+    {
+      "project": "octavia",
+      "api_reference": "https://developer.openstack.org/api-ref/load-balancer/",
+      "service_type": "load-balancer"
+    },
+    {
+      "project": "swift",
+      "api_reference": "https://developer.openstack.org/api-ref/object-storage/",
+      "service_type": "object-store"
+    },
+    {
+      "project": "senlin",
+      "api_reference": "https://developer.openstack.org/api-ref/clustering/",
+      "service_type": "clustering",
+      "aliases": [
+        "resource-cluster"
+      ]
+    },
+    {
+      "project": "sahara",
+      "api_reference": "https://developer.openstack.org/api-ref/data-processing/",
+      "service_type": "data-processing"
+    },
+    {
+      "project": "ironic",
+      "api_reference": "https://developer.openstack.org/api-ref/baremetal/",
+      "service_type": "baremetal"
+    },
+    {
+      "project": "ironic-inspector",
+      "api_reference": "https://docs.openstack.org/developer/ironic-inspector/http-api.html",
+      "service_type": "baremetal-introspection"
+    },
+    {
+      "project": "barbican",
+      "api_reference": "https://developer.openstack.org/api-ref/key-manager/",
+      "service_type": "key-manager"
+    },
+    {
+      "project": "ec2-api",
+      "api_reference": "https://developer.openstack.org/api-ref/ec2-api/",
+      "service_type": "ec2-api"
+    },
+    {
+      "project": "watcher",
+      "api_reference": "https://docs.openstack.org/developer/watcher/webapi/v1.html",
+      "service_type": "resource-optimization",
+      "aliases": [
+        "infra-optim"
+      ]
+    },
+    {
+      "project": "zaqar",
+      "api_reference": "https://developer.openstack.org/api-ref/messaging/",
+      "service_type": "message",
+      "aliases": [
+        "messaging"
+      ]
+    },
+    {
+      "project": "murano",
+      "api_reference": "https://developer.openstack.org/api-ref/application-catalog/",
+      "service_type": "application-catalog"
+    },
+    {
+      "project": "magnum",
+      "api_reference": "https://developer.openstack.org/api-ref/container-infrastructure-management/",
+      "service_type": "container-infrastructure-management",
+      "aliases": [
+        "container-infrastructure"
+      ]
+    },
+    {
+      "project": "searchlight",
+      "api_reference": "https://developer.openstack.org/api-ref/search/",
+      "service_type": "search"
+    },
+    {
+      "project": "designate",
+      "api_reference": "https://developer.openstack.org/api-ref/dns/",
+      "service_type": "dns"
+    },
+    {
+      "project": "mistral",
+      "api_reference": "https://docs.openstack.org/developer/mistral/developer/webapi/index.html",
+      "service_type": "workflow",
+      "aliases": [
+        "workflowv2"
+      ]
+    },
+    {
+      "project": "cloudkitty",
+      "api_reference": "https://docs.openstack.org/developer/cloudkitty/webapi/root.html",
+      "service_type": "rating"
+    },
+    {
+      "project": "congress",
+      "api_reference": "https://docs.openstack.org/developer/congress/api.html",
+      "service_type": "operator-policy",
+      "aliases": [
+        "policy"
+      ]
+    },
+    {
+      "project": "manila",
+      "api_reference": "https://developer.openstack.org/api-ref/shared-file-systems/",
+      "service_type": "shared-file-system",
+      "aliases": [
+        "sharev2",
+        "share"
+      ]
+    },
+    {
+      "project": "karbor",
+      "api_reference": "https://developer.openstack.org/api-ref/data-protection-orchestration/",
+      "service_type": "data-protection-orchestration"
+    },
+    {
+      "project": "heat",
+      "api_reference": "https://developer.openstack.org/api-ref/orchestration/",
+      "service_type": "orchestration"
+    },
+    {
+      "project": "cinder",
+      "api_reference": "https://developer.openstack.org/api-ref/block-storage/",
+      "service_type": "block-storage",
+      "aliases": [
+        "volumev3",
+        "volumev2",
+        "volume"
+      ]
+    },
+    {
+      "project": "aodh",
+      "api_reference": "https://docs.openstack.org/developer/aodh/webapi/index.html",
+      "service_type": "alarm",
+      "aliases": [
+        "alarming"
+      ]
+    },
+    {
+      "project": "ceilometer",
+      "api_reference": "https://docs.openstack.org/developer/ceilometer/webapi/index.html",
+      "service_type": "meter",
+      "aliases": [
+        "metering"
+      ]
+    },
+    {
+      "project": "panko",
+      "api_reference": "https://docs.openstack.org/developer/panko/webapi/index.html",
+      "service_type": "event",
+      "aliases": [
+        "events"
+      ]
+    },
+    {
+      "project": "solum",
+      "api_reference": "https://docs.openstack.org/developer/solum/develop_applications/webapi/index.html",
+      "service_type": "application-deployment",
+      "aliases": [
+        "application_deployment"
+      ]
+    },
+    {
+      "project": "tricircle",
+      "api_reference": "https://docs.openstack.org/developer/tricircle/api_v1.html",
+      "service_type": "multi-region-network-automation",
+      "aliases": [
+        "tricircle"
+      ]
+    },
+    {
+      "project": "trove",
+      "api_reference": "https://developer.openstack.org/api-ref/database/",
+      "service_type": "database"
+    },
+    {
+      "project": "zun",
+      "api_reference": "https://git.openstack.org/cgit/openstack/zun/tree/api-ref/source",
+      "service_type": "application-container",
+      "aliases": [
+        "container"
+      ]
+    },
+    {
+      "project": "vitrage",
+      "api_reference": "https://docs.openstack.org/developer/vitrage/vitrage-api.html",
+      "service_type": "root-cause-analysis",
+      "aliases": [
+        "rca"
+      ]
+    },
+    {
+      "project": "tacker",
+      "api_reference": "https://developer.openstack.org/api-ref/nfv-orchestration/",
+      "service_type": "nfv-orchestration"
+    },
+    {
+      "project": "neutron",
+      "api_reference": "https://developer.openstack.org/api-ref/networking/",
+      "service_type": "network",
+      "api_reference_project": "neutron-lib"
+    },
+    {
+      "project": "freezer-api",
+      "api_reference": "https://developer.openstack.org/api-ref/backup/",
+      "service_type": "backup"
+    },
+    {
+      "project": "monasca-log-api",
+      "api_reference": "https://developer.openstack.org/api-ref/monitoring-log-api/",
+      "service_type": "monitoring-logging",
+      "aliases": [
+        "monitoring-log-api"
+      ]
+    },
+    {
+      "project": "monasca-api",
+      "api_reference": "https://developer.openstack.org/api-ref/monitoring/",
+      "service_type": "monitoring"
+    },
+    {
+      "project": "monasca-events-api",
+      "api_reference": "https://developer.openstack.org/api-ref/monitoring-events-api/",
+      "service_type": "monitoring-events"
+    },
+    {
+      "api_reference": "https://developer.openstack.org/api-ref/placement/",
+      "project": "nova",
+      "secondary": true,
+      "service_type": "placement"
+    }
+  ],
+  "reverse": {
+    "messaging": "message",
+    "resource-cluster": "clustering",
+    "container": "application-container",
+    "application_deployment": "application-deployment",
+    "volumev3": "block-storage",
+    "tricircle": "multi-region-network-automation",
+    "monitoring-log-api": "monitoring-logging",
+    "alarming": "alarm",
+    "metering": "meter",
+    "policy": "operator-policy",
+    "infra-optim": "resource-optimization",
+    "events": "event",
+    "rca": "root-cause-analysis",
+    "volumev2": "block-storage",
+    "workflowv2": "workflow",
+    "sharev2": "shared-file-system",
+    "share": "shared-file-system",
+    "container-infrastructure": "container-infrastructure-management",
+    "volume": "block-storage"
+  },
+  "service_types_by_project": {
+    "tricircle": [
+      "multi-region-network-automation"
+    ],
+    "monasca-log-api": [
+      "monitoring-logging"
+    ],
+    "ironic-inspector": [
+      "baremetal-introspection"
+    ],
+    "cloudkitty": [
+      "rating"
+    ],
+    "ironic": [
+      "baremetal"
+    ],
+    "senlin": [
       "clustering"
     ],
-    "alarm": [
-      "alarming"
+    "vitrage": [
+      "root-cause-analysis"
     ],
-    "operator-policy": [
-      "policy"
+    "manila": [
+      "shared-file-system"
     ],
-    "message": [
-      "messaging"
+    "sahara": [
+      "data-processing"
+    ],
+    "freezer-api": [
+      "backup"
+    ],
+    "neutron-lib": [
+      "network"
+    ],
+    "trove": [
+      "database"
+    ],
+    "monasca-events-api": [
+      "monitoring-events"
+    ],
+    "aodh": [
+      "alarm"
+    ],
+    "designate": [
+      "dns"
+    ],
+    "barbican": [
+      "key-manager"
+    ],
+    "congress": [
+      "operator-policy"
+    ],
+    "searchlight": [
+      "search"
+    ],
+    "zaqar": [
+      "message"
+    ],
+    "tacker": [
+      "nfv-orchestration"
+    ],
+    "magnum": [
+      "container-infrastructure-management"
+    ],
+    "ec2-api": [
+      "ec2-api"
+    ],
+    "heat": [
+      "orchestration"
+    ],
+    "glance": [
+      "image"
+    ],
+    "karbor": [
+      "data-protection-orchestration"
+    ],
+    "murano": [
+      "application-catalog"
+    ],
+    "ceilometer": [
+      "meter"
+    ],
+    "nova": [
+      "compute",
+      "placement"
+    ],
+    "solum": [
+      "application-deployment"
+    ],
+    "monasca-api": [
+      "monitoring"
+    ],
+    "zun": [
+      "application-container"
+    ],
+    "watcher": [
+      "resource-optimization"
+    ],
+    "keystone": [
+      "identity"
+    ],
+    "cinder": [
+      "block-storage"
+    ],
+    "mistral": [
+      "workflow"
+    ],
+    "neutron": [
+      "network"
+    ],
+    "swift": [
+      "object-store"
+    ],
+    "octavia": [
+      "load-balancer"
+    ],
+    "panko": [
+      "event"
+    ]
+  },
+  "primary_service_by_project": {
+    "tricircle": {
+      "project": "tricircle",
+      "api_reference": "https://docs.openstack.org/developer/tricircle/api_v1.html",
+      "service_type": "multi-region-network-automation",
+      "aliases": [
+        "tricircle"
+      ]
+    },
+    "monasca-log-api": {
+      "project": "monasca-log-api",
+      "api_reference": "https://developer.openstack.org/api-ref/monitoring-log-api/",
+      "service_type": "monitoring-logging",
+      "aliases": [
+        "monitoring-log-api"
+      ]
+    },
+    "ironic-inspector": {
+      "project": "ironic-inspector",
+      "api_reference": "https://docs.openstack.org/developer/ironic-inspector/http-api.html",
+      "service_type": "baremetal-introspection"
+    },
+    "cloudkitty": {
+      "project": "cloudkitty",
+      "api_reference": "https://docs.openstack.org/developer/cloudkitty/webapi/root.html",
+      "service_type": "rating"
+    },
+    "ironic": {
+      "project": "ironic",
+      "api_reference": "https://developer.openstack.org/api-ref/baremetal/",
+      "service_type": "baremetal"
+    },
+    "senlin": {
+      "project": "senlin",
+      "api_reference": "https://developer.openstack.org/api-ref/clustering/",
+      "service_type": "clustering",
+      "aliases": [
+        "resource-cluster"
+      ]
+    },
+    "vitrage": {
+      "project": "vitrage",
+      "api_reference": "https://docs.openstack.org/developer/vitrage/vitrage-api.html",
+      "service_type": "root-cause-analysis",
+      "aliases": [
+        "rca"
+      ]
+    },
+    "manila": {
+      "project": "manila",
+      "api_reference": "https://developer.openstack.org/api-ref/shared-file-systems/",
+      "service_type": "shared-file-system",
+      "aliases": [
+        "sharev2",
+        "share"
+      ]
+    },
+    "sahara": {
+      "project": "sahara",
+      "api_reference": "https://developer.openstack.org/api-ref/data-processing/",
+      "service_type": "data-processing"
+    },
+    "freezer-api": {
+      "project": "freezer-api",
+      "api_reference": "https://developer.openstack.org/api-ref/backup/",
+      "service_type": "backup"
+    },
+    "neutron-lib": {
+      "project": "neutron",
+      "api_reference": "https://developer.openstack.org/api-ref/networking/",
+      "service_type": "network",
+      "api_reference_project": "neutron-lib"
+    },
+    "trove": {
+      "project": "trove",
+      "api_reference": "https://developer.openstack.org/api-ref/database/",
+      "service_type": "database"
+    },
+    "monasca-events-api": {
+      "project": "monasca-events-api",
+      "api_reference": "https://developer.openstack.org/api-ref/monitoring-events-api/",
+      "service_type": "monitoring-events"
+    },
+    "aodh": {
+      "project": "aodh",
+      "api_reference": "https://docs.openstack.org/developer/aodh/webapi/index.html",
+      "service_type": "alarm",
+      "aliases": [
+        "alarming"
+      ]
+    },
+    "designate": {
+      "project": "designate",
+      "api_reference": "https://developer.openstack.org/api-ref/dns/",
+      "service_type": "dns"
+    },
+    "barbican": {
+      "project": "barbican",
+      "api_reference": "https://developer.openstack.org/api-ref/key-manager/",
+      "service_type": "key-manager"
+    },
+    "congress": {
+      "project": "congress",
+      "api_reference": "https://docs.openstack.org/developer/congress/api.html",
+      "service_type": "operator-policy",
+      "aliases": [
+        "policy"
+      ]
+    },
+    "searchlight": {
+      "project": "searchlight",
+      "api_reference": "https://developer.openstack.org/api-ref/search/",
+      "service_type": "search"
+    },
+    "zaqar": {
+      "project": "zaqar",
+      "api_reference": "https://developer.openstack.org/api-ref/messaging/",
+      "service_type": "message",
+      "aliases": [
+        "messaging"
+      ]
+    },
+    "tacker": {
+      "project": "tacker",
+      "api_reference": "https://developer.openstack.org/api-ref/nfv-orchestration/",
+      "service_type": "nfv-orchestration"
+    },
+    "magnum": {
+      "project": "magnum",
+      "api_reference": "https://developer.openstack.org/api-ref/container-infrastructure-management/",
+      "service_type": "container-infrastructure-management",
+      "aliases": [
+        "container-infrastructure"
+      ]
+    },
+    "ec2-api": {
+      "project": "ec2-api",
+      "api_reference": "https://developer.openstack.org/api-ref/ec2-api/",
+      "service_type": "ec2-api"
+    },
+    "heat": {
+      "project": "heat",
+      "api_reference": "https://developer.openstack.org/api-ref/orchestration/",
+      "service_type": "orchestration"
+    },
+    "glance": {
+      "project": "glance",
+      "api_reference": "https://developer.openstack.org/api-ref/image/",
+      "service_type": "image"
+    },
+    "karbor": {
+      "project": "karbor",
+      "api_reference": "https://developer.openstack.org/api-ref/data-protection-orchestration/",
+      "service_type": "data-protection-orchestration"
+    },
+    "murano": {
+      "project": "murano",
+      "api_reference": "https://developer.openstack.org/api-ref/application-catalog/",
+      "service_type": "application-catalog"
+    },
+    "ceilometer": {
+      "project": "ceilometer",
+      "api_reference": "https://docs.openstack.org/developer/ceilometer/webapi/index.html",
+      "service_type": "meter",
+      "aliases": [
+        "metering"
+      ]
+    },
+    "nova": {
+      "project": "nova",
+      "api_reference": "https://developer.openstack.org/api-ref/compute/",
+      "service_type": "compute"
+    },
+    "solum": {
+      "project": "solum",
+      "api_reference": "https://docs.openstack.org/developer/solum/develop_applications/webapi/index.html",
+      "service_type": "application-deployment",
+      "aliases": [
+        "application_deployment"
+      ]
+    },
+    "monasca-api": {
+      "project": "monasca-api",
+      "api_reference": "https://developer.openstack.org/api-ref/monitoring/",
+      "service_type": "monitoring"
+    },
+    "zun": {
+      "project": "zun",
+      "api_reference": "https://git.openstack.org/cgit/openstack/zun/tree/api-ref/source",
+      "service_type": "application-container",
+      "aliases": [
+        "container"
+      ]
+    },
+    "watcher": {
+      "project": "watcher",
+      "api_reference": "https://docs.openstack.org/developer/watcher/webapi/v1.html",
+      "service_type": "resource-optimization",
+      "aliases": [
+        "infra-optim"
+      ]
+    },
+    "keystone": {
+      "project": "keystone",
+      "api_reference": "https://developer.openstack.org/api-ref/identity/",
+      "service_type": "identity"
+    },
+    "cinder": {
+      "project": "cinder",
+      "api_reference": "https://developer.openstack.org/api-ref/block-storage/",
+      "service_type": "block-storage",
+      "aliases": [
+        "volumev3",
+        "volumev2",
+        "volume"
+      ]
+    },
+    "mistral": {
+      "project": "mistral",
+      "api_reference": "https://docs.openstack.org/developer/mistral/developer/webapi/index.html",
+      "service_type": "workflow",
+      "aliases": [
+        "workflowv2"
+      ]
+    },
+    "neutron": {
+      "project": "neutron",
+      "api_reference": "https://developer.openstack.org/api-ref/networking/",
+      "service_type": "network",
+      "api_reference_project": "neutron-lib"
+    },
+    "swift": {
+      "project": "swift",
+      "api_reference": "https://developer.openstack.org/api-ref/object-storage/",
+      "service_type": "object-store"
+    },
+    "octavia": {
+      "project": "octavia",
+      "api_reference": "https://developer.openstack.org/api-ref/load-balancer/",
+      "service_type": "load-balancer"
+    },
+    "panko": {
+      "project": "panko",
+      "api_reference": "https://docs.openstack.org/developer/panko/webapi/index.html",
+      "service_type": "event",
+      "aliases": [
+        "events"
+      ]
+    }
+  },
+  "version": "2017-08-17T14:25:08.515079",
+  "sha": "e9b1b4a14ac74c44a2d145072ca195d34766a5e5",
+  "forward": {
+    "application-deployment": [
+      "application_deployment"
     ],
     "multi-region-network-automation": [
       "tricircle"
     ],
-    "shared-file-system": [
-      "sharev2",
-      "share"
-    ],
-    "resource-optimization": [
-      "infra-optim"
-    ],
     "monitoring-logging": [
       "monitoring-log-api"
     ],
-    "application-container": [
-      "container"
-    ],
-    "meter": [
-      "metering"
-    ],
-    "application-deployment": [
-      "application_deployment"
-    ],
-    "container-infrastructure-management": [
-      "container-infrastructure"
-    ],
     "root-cause-analysis": [
       "rca"
+    ],
+    "alarm": [
+      "alarming"
+    ],
+    "application-container": [
+      "container"
     ],
     "block-storage": [
       "volumev3",
@@ -51,19 +671,41 @@
     ],
     "event": [
       "events"
+    ],
+    "meter": [
+      "metering"
+    ],
+    "clustering": [
+      "resource-cluster"
+    ],
+    "shared-file-system": [
+      "sharev2",
+      "share"
+    ],
+    "operator-policy": [
+      "policy"
+    ],
+    "container-infrastructure-management": [
+      "container-infrastructure"
+    ],
+    "resource-optimization": [
+      "infra-optim"
+    ],
+    "message": [
+      "messaging"
     ]
   },
-  "version": "2017-08-13T15:18:22.656302",
   "all_types_by_service_type": {
-    "baremetal": [
-      "baremetal"
+    "application-catalog": [
+      "application-catalog"
     ],
-    "alarm": [
-      "alarm",
-      "alarming"
+    "multi-region-network-automation": [
+      "multi-region-network-automation",
+      "tricircle"
     ],
-    "rating": [
-      "rating"
+    "monitoring-logging": [
+      "monitoring-logging",
+      "monitoring-log-api"
     ],
     "nfv-orchestration": [
       "nfv-orchestration"
@@ -72,83 +714,28 @@
       "application-container",
       "container"
     ],
-    "message": [
-      "message",
-      "messaging"
-    ],
-    "monitoring-logging": [
-      "monitoring-logging",
-      "monitoring-log-api"
-    ],
-    "compute": [
-      "compute"
-    ],
-    "data-processing": [
-      "data-processing"
-    ],
-    "application-deployment": [
-      "application-deployment",
-      "application_deployment"
-    ],
-    "multi-region-network-automation": [
-      "multi-region-network-automation",
-      "tricircle"
+    "rating": [
+      "rating"
     ],
     "workflow": [
       "workflow",
       "workflowv2"
     ],
-    "database": [
-      "database"
+    "compute": [
+      "compute"
     ],
-    "placement": [
-      "placement"
-    ],
-    "meter": [
-      "meter",
-      "metering"
-    ],
-    "application-catalog": [
-      "application-catalog"
-    ],
-    "resource-optimization": [
-      "resource-optimization",
-      "infra-optim"
-    ],
-    "image": [
-      "image"
-    ],
-    "key-manager": [
-      "key-manager"
-    ],
-    "container-infrastructure-management": [
-      "container-infrastructure-management",
-      "container-infrastructure"
-    ],
-    "ec2-api": [
-      "ec2-api"
-    ],
-    "resource-cluster": [
-      "resource-cluster",
-      "clustering"
-    ],
-    "backup": [
-      "backup"
+    "dns": [
+      "dns"
     ],
     "network": [
       "network"
     ],
-    "load-balancer": [
-      "load-balancer"
+    "clustering": [
+      "clustering",
+      "resource-cluster"
     ],
-    "search": [
-      "search"
-    ],
-    "monitoring-events": [
-      "monitoring-events"
-    ],
-    "dns": [
-      "dns"
+    "orchestration": [
+      "orchestration"
     ],
     "shared-file-system": [
       "shared-file-system",
@@ -159,27 +746,48 @@
       "operator-policy",
       "policy"
     ],
-    "object-store": [
-      "object-store"
-    ],
-    "orchestration": [
-      "orchestration"
-    ],
-    "baremetal-introspection": [
-      "baremetal-introspection"
-    ],
-    "data-protection-orchestration": [
-      "data-protection-orchestration"
-    ],
     "identity": [
       "identity"
+    ],
+    "container-infrastructure-management": [
+      "container-infrastructure-management",
+      "container-infrastructure"
+    ],
+    "monitoring-events": [
+      "monitoring-events"
+    ],
+    "message": [
+      "message",
+      "messaging"
     ],
     "monitoring": [
       "monitoring"
     ],
+    "baremetal": [
+      "baremetal"
+    ],
+    "image": [
+      "image"
+    ],
+    "load-balancer": [
+      "load-balancer"
+    ],
+    "data-processing": [
+      "data-processing"
+    ],
+    "placement": [
+      "placement"
+    ],
+    "baremetal-introspection": [
+      "baremetal-introspection"
+    ],
     "root-cause-analysis": [
       "root-cause-analysis",
       "rca"
+    ],
+    "alarm": [
+      "alarm",
+      "alarming"
     ],
     "block-storage": [
       "block-storage",
@@ -187,650 +795,42 @@
       "volumev2",
       "volume"
     ],
+    "application-deployment": [
+      "application-deployment",
+      "application_deployment"
+    ],
+    "backup": [
+      "backup"
+    ],
+    "data-protection-orchestration": [
+      "data-protection-orchestration"
+    ],
+    "key-manager": [
+      "key-manager"
+    ],
     "event": [
       "event",
       "events"
-    ]
-  },
-  "primary_service_by_project": {
-    "cinder": {
-      "aliases": [
-        "volumev3",
-        "volumev2",
-        "volume"
-      ],
-      "service_type": "block-storage",
-      "api_reference": "https://developer.openstack.org/api-ref/block-storage/",
-      "project": "cinder"
-    },
-    "monasca-events-api": {
-      "service_type": "monitoring-events",
-      "api_reference": "https://developer.openstack.org/api-ref/monitoring-events-api/",
-      "project": "monasca-events-api"
-    },
-    "zun": {
-      "aliases": [
-        "container"
-      ],
-      "service_type": "application-container",
-      "api_reference": "https://git.openstack.org/cgit/openstack/zun/tree/api-ref/source",
-      "project": "zun"
-    },
-    "tacker": {
-      "service_type": "nfv-orchestration",
-      "api_reference": "https://developer.openstack.org/api-ref/nfv-orchestration/",
-      "project": "tacker"
-    },
-    "congress": {
-      "aliases": [
-        "policy"
-      ],
-      "service_type": "operator-policy",
-      "api_reference": "https://docs.openstack.org/developer/congress/api.html",
-      "project": "congress"
-    },
-    "aodh": {
-      "aliases": [
-        "alarming"
-      ],
-      "service_type": "alarm",
-      "api_reference": "https://docs.openstack.org/developer/aodh/webapi/index.html",
-      "project": "aodh"
-    },
-    "solum": {
-      "aliases": [
-        "application_deployment"
-      ],
-      "service_type": "application-deployment",
-      "api_reference": "https://docs.openstack.org/developer/solum/develop_applications/webapi/index.html",
-      "project": "solum"
-    },
-    "freezer-api": {
-      "service_type": "backup",
-      "api_reference": "https://developer.openstack.org/api-ref/backup/",
-      "project": "freezer-api"
-    },
-    "mistral": {
-      "aliases": [
-        "workflowv2"
-      ],
-      "service_type": "workflow",
-      "api_reference": "https://docs.openstack.org/developer/mistral/developer/webapi/index.html",
-      "project": "mistral"
-    },
-    "trove": {
-      "service_type": "database",
-      "api_reference": "https://developer.openstack.org/api-ref/database/",
-      "project": "trove"
-    },
-    "glance": {
-      "service_type": "image",
-      "api_reference": "https://developer.openstack.org/api-ref/image/",
-      "project": "glance"
-    },
-    "panko": {
-      "aliases": [
-        "events"
-      ],
-      "service_type": "event",
-      "api_reference": "https://docs.openstack.org/developer/panko/webapi/index.html",
-      "project": "panko"
-    },
-    "vitrage": {
-      "aliases": [
-        "rca"
-      ],
-      "service_type": "root-cause-analysis",
-      "api_reference": "https://docs.openstack.org/developer/vitrage/vitrage-api.html",
-      "project": "vitrage"
-    },
-    "searchlight": {
-      "service_type": "search",
-      "api_reference": "https://developer.openstack.org/api-ref/search/",
-      "project": "searchlight"
-    },
-    "ceilometer": {
-      "aliases": [
-        "metering"
-      ],
-      "service_type": "meter",
-      "api_reference": "https://docs.openstack.org/developer/ceilometer/webapi/index.html",
-      "project": "ceilometer"
-    },
-    "monasca-log-api": {
-      "aliases": [
-        "monitoring-log-api"
-      ],
-      "service_type": "monitoring-logging",
-      "api_reference": "https://developer.openstack.org/api-ref/monitoring-log-api/",
-      "project": "monasca-log-api"
-    },
-    "manila": {
-      "aliases": [
-        "sharev2",
-        "share"
-      ],
-      "service_type": "shared-file-system",
-      "api_reference": "https://developer.openstack.org/api-ref/shared-file-systems/",
-      "project": "manila"
-    },
-    "neutron": {
-      "service_type": "network",
-      "project": "neutron",
-      "api_reference": "https://developer.openstack.org/api-ref/networking/",
-      "api_reference_project": "neutron-lib"
-    },
-    "sahara": {
-      "service_type": "data-processing",
-      "api_reference": "https://developer.openstack.org/api-ref/data-processing/",
-      "project": "sahara"
-    },
-    "octavia": {
-      "service_type": "load-balancer",
-      "api_reference": "https://developer.openstack.org/api-ref/load-balancer/",
-      "project": "octavia"
-    },
-    "cloudkitty": {
-      "service_type": "rating",
-      "api_reference": "https://docs.openstack.org/developer/cloudkitty/webapi/root.html",
-      "project": "cloudkitty"
-    },
-    "designate": {
-      "service_type": "dns",
-      "api_reference": "https://developer.openstack.org/api-ref/dns/",
-      "project": "designate"
-    },
-    "neutron-lib": {
-      "service_type": "network",
-      "project": "neutron",
-      "api_reference": "https://developer.openstack.org/api-ref/networking/",
-      "api_reference_project": "neutron-lib"
-    },
-    "karbor": {
-      "service_type": "data-protection-orchestration",
-      "api_reference": "https://developer.openstack.org/api-ref/data-protection-orchestration/",
-      "project": "karbor"
-    },
-    "keystone": {
-      "service_type": "identity",
-      "api_reference": "https://developer.openstack.org/api-ref/identity/",
-      "project": "keystone"
-    },
-    "ironic-inspector": {
-      "service_type": "baremetal-introspection",
-      "api_reference": "https://docs.openstack.org/developer/ironic-inspector/http-api.html",
-      "project": "ironic-inspector"
-    },
-    "monasca-api": {
-      "service_type": "monitoring",
-      "api_reference": "https://developer.openstack.org/api-ref/monitoring/",
-      "project": "monasca-api"
-    },
-    "zaqar": {
-      "aliases": [
-        "messaging"
-      ],
-      "service_type": "message",
-      "api_reference": "https://developer.openstack.org/api-ref/messaging/",
-      "project": "zaqar"
-    },
-    "nova": {
-      "service_type": "compute",
-      "api_reference": "https://developer.openstack.org/api-ref/compute/",
-      "project": "nova"
-    },
-    "tricircle": {
-      "aliases": [
-        "tricircle"
-      ],
-      "service_type": "multi-region-network-automation",
-      "api_reference": "https://docs.openstack.org/developer/tricircle/api_v1.html",
-      "project": "tricircle"
-    },
-    "ironic": {
-      "service_type": "baremetal",
-      "api_reference": "https://developer.openstack.org/api-ref/baremetal/",
-      "project": "ironic"
-    },
-    "magnum": {
-      "aliases": [
-        "container-infrastructure"
-      ],
-      "service_type": "container-infrastructure-management",
-      "api_reference": "https://developer.openstack.org/api-ref/container-infrastructure-management/",
-      "project": "magnum"
-    },
-    "barbican": {
-      "service_type": "key-manager",
-      "api_reference": "https://developer.openstack.org/api-ref/key-manager/",
-      "project": "barbican"
-    },
-    "senlin": {
-      "aliases": [
-        "clustering"
-      ],
-      "service_type": "resource-cluster",
-      "api_reference": "https://developer.openstack.org/api-ref/clustering/",
-      "project": "senlin"
-    },
-    "ec2-api": {
-      "service_type": "ec2-api",
-      "api_reference": "https://developer.openstack.org/api-ref/ec2-api/",
-      "project": "ec2-api"
-    },
-    "watcher": {
-      "aliases": [
-        "infra-optim"
-      ],
-      "service_type": "resource-optimization",
-      "api_reference": "https://docs.openstack.org/developer/watcher/webapi/v1.html",
-      "project": "watcher"
-    },
-    "heat": {
-      "service_type": "orchestration",
-      "api_reference": "https://developer.openstack.org/api-ref/orchestration/",
-      "project": "heat"
-    },
-    "murano": {
-      "service_type": "application-catalog",
-      "api_reference": "https://developer.openstack.org/api-ref/application-catalog/",
-      "project": "murano"
-    },
-    "swift": {
-      "service_type": "object-store",
-      "api_reference": "https://developer.openstack.org/api-ref/object-storage/",
-      "project": "swift"
-    }
-  },
-  "services": [
-    {
-      "service_type": "identity",
-      "api_reference": "https://developer.openstack.org/api-ref/identity/",
-      "project": "keystone"
-    },
-    {
-      "service_type": "compute",
-      "api_reference": "https://developer.openstack.org/api-ref/compute/",
-      "project": "nova"
-    },
-    {
-      "service_type": "image",
-      "api_reference": "https://developer.openstack.org/api-ref/image/",
-      "project": "glance"
-    },
-    {
-      "service_type": "load-balancer",
-      "api_reference": "https://developer.openstack.org/api-ref/load-balancer/",
-      "project": "octavia"
-    },
-    {
-      "service_type": "object-store",
-      "api_reference": "https://developer.openstack.org/api-ref/object-storage/",
-      "project": "swift"
-    },
-    {
-      "aliases": [
-        "clustering"
-      ],
-      "service_type": "resource-cluster",
-      "api_reference": "https://developer.openstack.org/api-ref/clustering/",
-      "project": "senlin"
-    },
-    {
-      "service_type": "data-processing",
-      "api_reference": "https://developer.openstack.org/api-ref/data-processing/",
-      "project": "sahara"
-    },
-    {
-      "service_type": "baremetal",
-      "api_reference": "https://developer.openstack.org/api-ref/baremetal/",
-      "project": "ironic"
-    },
-    {
-      "service_type": "baremetal-introspection",
-      "api_reference": "https://docs.openstack.org/developer/ironic-inspector/http-api.html",
-      "project": "ironic-inspector"
-    },
-    {
-      "service_type": "key-manager",
-      "api_reference": "https://developer.openstack.org/api-ref/key-manager/",
-      "project": "barbican"
-    },
-    {
-      "service_type": "ec2-api",
-      "api_reference": "https://developer.openstack.org/api-ref/ec2-api/",
-      "project": "ec2-api"
-    },
-    {
-      "aliases": [
-        "infra-optim"
-      ],
-      "service_type": "resource-optimization",
-      "api_reference": "https://docs.openstack.org/developer/watcher/webapi/v1.html",
-      "project": "watcher"
-    },
-    {
-      "aliases": [
-        "messaging"
-      ],
-      "service_type": "message",
-      "api_reference": "https://developer.openstack.org/api-ref/messaging/",
-      "project": "zaqar"
-    },
-    {
-      "service_type": "application-catalog",
-      "api_reference": "https://developer.openstack.org/api-ref/application-catalog/",
-      "project": "murano"
-    },
-    {
-      "aliases": [
-        "container-infrastructure"
-      ],
-      "service_type": "container-infrastructure-management",
-      "api_reference": "https://developer.openstack.org/api-ref/container-infrastructure-management/",
-      "project": "magnum"
-    },
-    {
-      "service_type": "search",
-      "api_reference": "https://developer.openstack.org/api-ref/search/",
-      "project": "searchlight"
-    },
-    {
-      "service_type": "dns",
-      "api_reference": "https://developer.openstack.org/api-ref/dns/",
-      "project": "designate"
-    },
-    {
-      "aliases": [
-        "workflowv2"
-      ],
-      "service_type": "workflow",
-      "api_reference": "https://docs.openstack.org/developer/mistral/developer/webapi/index.html",
-      "project": "mistral"
-    },
-    {
-      "service_type": "rating",
-      "api_reference": "https://docs.openstack.org/developer/cloudkitty/webapi/root.html",
-      "project": "cloudkitty"
-    },
-    {
-      "aliases": [
-        "policy"
-      ],
-      "service_type": "operator-policy",
-      "api_reference": "https://docs.openstack.org/developer/congress/api.html",
-      "project": "congress"
-    },
-    {
-      "aliases": [
-        "sharev2",
-        "share"
-      ],
-      "service_type": "shared-file-system",
-      "api_reference": "https://developer.openstack.org/api-ref/shared-file-systems/",
-      "project": "manila"
-    },
-    {
-      "service_type": "data-protection-orchestration",
-      "api_reference": "https://developer.openstack.org/api-ref/data-protection-orchestration/",
-      "project": "karbor"
-    },
-    {
-      "service_type": "orchestration",
-      "api_reference": "https://developer.openstack.org/api-ref/orchestration/",
-      "project": "heat"
-    },
-    {
-      "aliases": [
-        "volumev3",
-        "volumev2",
-        "volume"
-      ],
-      "service_type": "block-storage",
-      "api_reference": "https://developer.openstack.org/api-ref/block-storage/",
-      "project": "cinder"
-    },
-    {
-      "aliases": [
-        "alarming"
-      ],
-      "service_type": "alarm",
-      "api_reference": "https://docs.openstack.org/developer/aodh/webapi/index.html",
-      "project": "aodh"
-    },
-    {
-      "aliases": [
-        "metering"
-      ],
-      "service_type": "meter",
-      "api_reference": "https://docs.openstack.org/developer/ceilometer/webapi/index.html",
-      "project": "ceilometer"
-    },
-    {
-      "aliases": [
-        "events"
-      ],
-      "service_type": "event",
-      "api_reference": "https://docs.openstack.org/developer/panko/webapi/index.html",
-      "project": "panko"
-    },
-    {
-      "aliases": [
-        "application_deployment"
-      ],
-      "service_type": "application-deployment",
-      "api_reference": "https://docs.openstack.org/developer/solum/develop_applications/webapi/index.html",
-      "project": "solum"
-    },
-    {
-      "aliases": [
-        "tricircle"
-      ],
-      "service_type": "multi-region-network-automation",
-      "api_reference": "https://docs.openstack.org/developer/tricircle/api_v1.html",
-      "project": "tricircle"
-    },
-    {
-      "service_type": "database",
-      "api_reference": "https://developer.openstack.org/api-ref/database/",
-      "project": "trove"
-    },
-    {
-      "aliases": [
-        "container"
-      ],
-      "service_type": "application-container",
-      "api_reference": "https://git.openstack.org/cgit/openstack/zun/tree/api-ref/source",
-      "project": "zun"
-    },
-    {
-      "aliases": [
-        "rca"
-      ],
-      "service_type": "root-cause-analysis",
-      "api_reference": "https://docs.openstack.org/developer/vitrage/vitrage-api.html",
-      "project": "vitrage"
-    },
-    {
-      "service_type": "nfv-orchestration",
-      "api_reference": "https://developer.openstack.org/api-ref/nfv-orchestration/",
-      "project": "tacker"
-    },
-    {
-      "service_type": "network",
-      "project": "neutron",
-      "api_reference": "https://developer.openstack.org/api-ref/networking/",
-      "api_reference_project": "neutron-lib"
-    },
-    {
-      "service_type": "backup",
-      "api_reference": "https://developer.openstack.org/api-ref/backup/",
-      "project": "freezer-api"
-    },
-    {
-      "aliases": [
-        "monitoring-log-api"
-      ],
-      "service_type": "monitoring-logging",
-      "api_reference": "https://developer.openstack.org/api-ref/monitoring-log-api/",
-      "project": "monasca-log-api"
-    },
-    {
-      "service_type": "monitoring",
-      "api_reference": "https://developer.openstack.org/api-ref/monitoring/",
-      "project": "monasca-api"
-    },
-    {
-      "service_type": "monitoring-events",
-      "api_reference": "https://developer.openstack.org/api-ref/monitoring-events-api/",
-      "project": "monasca-events-api"
-    },
-    {
-      "service_type": "placement",
-      "secondary": true,
-      "api_reference": "https://developer.openstack.org/api-ref/placement/",
-      "project": "nova"
-    }
-  ],
-  "service_types_by_project": {
-    "cinder": [
-      "block-storage"
     ],
-    "monasca-events-api": [
-      "monitoring-events"
+    "meter": [
+      "meter",
+      "metering"
     ],
-    "zun": [
-      "application-container"
+    "object-store": [
+      "object-store"
     ],
-    "tacker": [
-      "nfv-orchestration"
-    ],
-    "congress": [
-      "operator-policy"
-    ],
-    "aodh": [
-      "alarm"
-    ],
-    "solum": [
-      "application-deployment"
-    ],
-    "freezer-api": [
-      "backup"
-    ],
-    "mistral": [
-      "workflow"
-    ],
-    "trove": [
+    "database": [
       "database"
-    ],
-    "glance": [
-      "image"
-    ],
-    "panko": [
-      "event"
-    ],
-    "vitrage": [
-      "root-cause-analysis"
-    ],
-    "searchlight": [
-      "search"
-    ],
-    "ceilometer": [
-      "meter"
-    ],
-    "monasca-log-api": [
-      "monitoring-logging"
-    ],
-    "manila": [
-      "shared-file-system"
-    ],
-    "neutron": [
-      "network"
-    ],
-    "sahara": [
-      "data-processing"
-    ],
-    "octavia": [
-      "load-balancer"
-    ],
-    "cloudkitty": [
-      "rating"
-    ],
-    "designate": [
-      "dns"
-    ],
-    "neutron-lib": [
-      "network"
-    ],
-    "karbor": [
-      "data-protection-orchestration"
-    ],
-    "keystone": [
-      "identity"
-    ],
-    "ironic-inspector": [
-      "baremetal-introspection"
-    ],
-    "monasca-api": [
-      "monitoring"
-    ],
-    "zaqar": [
-      "message"
-    ],
-    "nova": [
-      "compute",
-      "placement"
-    ],
-    "tricircle": [
-      "multi-region-network-automation"
-    ],
-    "ironic": [
-      "baremetal"
-    ],
-    "magnum": [
-      "container-infrastructure-management"
-    ],
-    "barbican": [
-      "key-manager"
-    ],
-    "senlin": [
-      "resource-cluster"
     ],
     "ec2-api": [
       "ec2-api"
     ],
-    "watcher": [
-      "resource-optimization"
+    "resource-optimization": [
+      "resource-optimization",
+      "infra-optim"
     ],
-    "heat": [
-      "orchestration"
-    ],
-    "murano": [
-      "application-catalog"
-    ],
-    "swift": [
-      "object-store"
+    "search": [
+      "search"
     ]
-  },
-  "reverse": {
-    "infra-optim": "resource-optimization",
-    "policy": "operator-policy",
-    "volumev2": "block-storage",
-    "share": "shared-file-system",
-    "alarming": "alarm",
-    "container": "application-container",
-    "clustering": "resource-cluster",
-    "metering": "meter",
-    "events": "event",
-    "application_deployment": "application-deployment",
-    "workflowv2": "workflow",
-    "monitoring-log-api": "monitoring-logging",
-    "container-infrastructure": "container-infrastructure-management",
-    "tricircle": "multi-region-network-automation",
-    "volumev3": "block-storage",
-    "messaging": "message",
-    "sharev2": "shared-file-system",
-    "rca": "root-cause-analysis",
-    "volume": "block-storage"
   }
 }
