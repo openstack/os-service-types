@@ -215,7 +215,7 @@
     },
     {
       "project": "neutron",
-      "api_reference": "https://developer.openstack.org/api-ref/networking/",
+      "api_reference": "https://developer.openstack.org/api-ref/network/",
       "service_type": "network",
       "api_reference_project": "neutron-lib"
     },
@@ -459,7 +459,7 @@
     },
     "neutron-lib": {
       "project": "neutron",
-      "api_reference": "https://developer.openstack.org/api-ref/networking/",
+      "api_reference": "https://developer.openstack.org/api-ref/network/",
       "service_type": "network",
       "api_reference_project": "neutron-lib"
     },
@@ -506,7 +506,7 @@
     },
     "zaqar": {
       "project": "zaqar",
-      "api_reference": "https://developer.openstack.org/api-ref/messaging/",
+      "api_reference": "https://developer.openstack.org/api-ref/message/",
       "service_type": "message",
       "aliases": [
         "messaging"
@@ -617,13 +617,13 @@
     },
     "neutron": {
       "project": "neutron",
-      "api_reference": "https://developer.openstack.org/api-ref/networking/",
+      "api_reference": "https://developer.openstack.org/api-ref/network/",
       "service_type": "network",
       "api_reference_project": "neutron-lib"
     },
     "swift": {
       "project": "swift",
-      "api_reference": "https://developer.openstack.org/api-ref/object-storage/",
+      "api_reference": "https://developer.openstack.org/api-ref/object-store/",
       "service_type": "object-store"
     },
     "octavia": {
