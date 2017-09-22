@@ -77,7 +77,7 @@ class ServiceDataMixin(object):
         ('network', dict(
             service_type='network', official='network', aliases=[],
             all_types=['network'],
-            api_reference='networking', api_reference_project='neutron-lib',
+            api_reference='network', api_reference_project='neutron-lib',
             is_known=True, is_alias=False, is_official=True,
             is_secondary=False, all_services=['network'],
             project='neutron')),
