@@ -1,6 +1,6 @@
 ===================================
- Pike Series Release Notes
+ master Series Release Notes
 ===================================
 
 .. release-notes::
-   :branch: stable/pike
+   :branch: master
