@@ -1,0 +1,7 @@
+---
+features:
+  - |
+    Factory function ``os_service_types.get_service_types`` added. Returns
+    a singleton instance of ServiceTypes. ServiceTypes is a very low cost
+    object in the first place, but it does read a data file from disk and
+    then the data is pretty static.

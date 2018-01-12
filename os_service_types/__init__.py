@@ -18,3 +18,24 @@ import pbr.version
 from os_service_types.service_types import ServiceTypes  # flake8: noqa
 
 __version__ = pbr.version.VersionInfo('os-service-types').version_string()
+_service_type_manager = None
+
+
+def get_service_types(*args, **kwargs):
+    """Return singleton instance of the ServiceTypes object.
+
+    Parameters are all passed through to the
+    :class:`~os_service_types.service_types.ServiceTypes` constructor.
+
+    .. note::
+
+      Only one singleton is kept, so if instances with different parameter
+      values are desired, directly calling the constructor is necessary.
+
+    :returns: Singleton instance of
+        :class:`~os_service_types.service_types.ServiceTypes`
+    """
+    global _service_type_manager
+    if not _service_type_manager:
+        _service_type_manager = ServiceTypes(*args, **kwargs)
+    return _service_type_manager
