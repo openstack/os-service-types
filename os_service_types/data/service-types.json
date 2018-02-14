@@ -19,7 +19,8 @@
       "backup"
     ],
     "baremetal": [
-      "baremetal"
+      "baremetal",
+      "bare-metal"
     ],
     "baremetal-introspection": [
       "baremetal-introspection"
@@ -28,11 +29,13 @@
       "block-storage",
       "volumev3",
       "volumev2",
-      "volume"
+      "volume",
+      "block-store"
     ],
     "clustering": [
       "clustering",
-      "resource-cluster"
+      "resource-cluster",
+      "cluster"
     ],
     "compute": [
       "compute"
@@ -66,6 +69,10 @@
     "image": [
       "image"
     ],
+    "instance-ha": [
+      "instance-ha",
+      "ha"
+    ],
     "key-manager": [
       "key-manager"
     ],
@@ -78,7 +85,8 @@
     ],
     "meter": [
       "meter",
-      "metering"
+      "metering",
+      "telemetry"
     ],
     "monitoring": [
       "monitoring"
@@ -116,6 +124,9 @@
     "rating": [
       "rating"
     ],
+    "reservation": [
+      "reservation"
+    ],
     "resource-optimization": [
       "resource-optimization",
       "infra-optim"
@@ -147,13 +158,18 @@
     "application-deployment": [
       "application_deployment"
     ],
+    "baremetal": [
+      "bare-metal"
+    ],
     "block-storage": [
       "volumev3",
       "volumev2",
-      "volume"
+      "volume",
+      "block-store"
     ],
     "clustering": [
-      "resource-cluster"
+      "resource-cluster",
+      "cluster"
     ],
     "container-infrastructure-management": [
       "container-infrastructure"
@@ -161,11 +177,15 @@
     "event": [
       "events"
     ],
+    "instance-ha": [
+      "ha"
+    ],
     "message": [
       "messaging"
     ],
     "meter": [
-      "metering"
+      "metering",
+      "telemetry"
     ],
     "monitoring-logging": [
       "monitoring-log-api"
@@ -204,9 +224,15 @@
       "project": "barbican",
       "service_type": "key-manager"
     },
+    "blazar": {
+      "api_reference": "https://developer.openstack.org/api-ref/reservation/",
+      "project": "blazar",
+      "service_type": "reservation"
+    },
     "ceilometer": {
       "aliases": [
-        "metering"
+        "metering",
+        "telemetry"
       ],
       "api_reference": "https://docs.openstack.org/developer/ceilometer/webapi/index.html",
       "project": "ceilometer",
@@ -216,7 +242,8 @@
       "aliases": [
         "volumev3",
         "volumev2",
-        "volume"
+        "volume",
+        "block-store"
       ],
       "api_reference": "https://developer.openstack.org/api-ref/block-storage/",
       "project": "cinder",
@@ -261,6 +288,9 @@
       "service_type": "orchestration"
     },
     "ironic": {
+      "aliases": [
+        "bare-metal"
+      ],
       "api_reference": "https://developer.openstack.org/api-ref/baremetal/",
       "project": "ironic",
       "service_type": "baremetal"
@@ -293,9 +323,17 @@
         "sharev2",
         "share"
       ],
-      "api_reference": "https://developer.openstack.org/api-ref/shared-file-systems/",
+      "api_reference": "https://developer.openstack.org/api-ref/shared-file-system/",
       "project": "manila",
       "service_type": "shared-file-system"
+    },
+    "masakari": {
+      "aliases": [
+        "ha"
+      ],
+      "api_reference": "https://developer.openstack.org/api-ref/instance-ha/",
+      "project": "masakari",
+      "service_type": "instance-ha"
     },
     "mistral": {
       "aliases": [
@@ -311,7 +349,7 @@
       "service_type": "monitoring"
     },
     "monasca-events-api": {
-      "api_reference": "https://developer.openstack.org/api-ref/monitoring-events-api/",
+      "api_reference": "https://developer.openstack.org/api-ref/monitoring-events/",
       "project": "monasca-events-api",
       "service_type": "monitoring-events"
     },
@@ -319,7 +357,7 @@
       "aliases": [
         "monitoring-log-api"
       ],
-      "api_reference": "https://developer.openstack.org/api-ref/monitoring-log-api/",
+      "api_reference": "https://developer.openstack.org/api-ref/monitoring-logging/",
       "project": "monasca-log-api",
       "service_type": "monitoring-logging"
     },
@@ -370,7 +408,8 @@
     },
     "senlin": {
       "aliases": [
-        "resource-cluster"
+        "resource-cluster",
+        "cluster"
       ],
       "api_reference": "https://developer.openstack.org/api-ref/clustering/",
       "project": "senlin",
@@ -435,7 +474,7 @@
       "aliases": [
         "container"
       ],
-      "api_reference": "https://git.openstack.org/cgit/openstack/zun/tree/api-ref/source",
+      "api_reference": "https://developer.openstack.org/api-ref/application-container/",
       "project": "zun",
       "service_type": "application-container"
     }
@@ -443,9 +482,13 @@
   "reverse": {
     "alarming": "alarm",
     "application_deployment": "application-deployment",
+    "bare-metal": "baremetal",
+    "block-store": "block-storage",
+    "cluster": "clustering",
     "container": "application-container",
     "container-infrastructure": "container-infrastructure-management",
     "events": "event",
+    "ha": "instance-ha",
     "infra-optim": "resource-optimization",
     "messaging": "message",
     "metering": "meter",
@@ -455,6 +498,7 @@
     "resource-cluster": "clustering",
     "share": "shared-file-system",
     "sharev2": "shared-file-system",
+    "telemetry": "meter",
     "tricircle": "multi-region-network-automation",
     "volume": "block-storage",
     "volumev2": "block-storage",
@@ -467,6 +511,9 @@
     ],
     "barbican": [
       "key-manager"
+    ],
+    "blazar": [
+      "reservation"
     ],
     "ceilometer": [
       "meter"
@@ -512,6 +559,9 @@
     ],
     "manila": [
       "shared-file-system"
+    ],
+    "masakari": [
+      "instance-ha"
     ],
     "mistral": [
       "workflow"
@@ -603,13 +653,14 @@
       "service_type": "load-balancer"
     },
     {
-      "api_reference": "https://developer.openstack.org/api-ref/object-storage/",
+      "api_reference": "https://developer.openstack.org/api-ref/object-store/",
       "project": "swift",
       "service_type": "object-store"
     },
     {
       "aliases": [
-        "resource-cluster"
+        "resource-cluster",
+        "cluster"
       ],
       "api_reference": "https://developer.openstack.org/api-ref/clustering/",
       "project": "senlin",
@@ -621,6 +672,9 @@
       "service_type": "data-processing"
     },
     {
+      "aliases": [
+        "bare-metal"
+      ],
       "api_reference": "https://developer.openstack.org/api-ref/baremetal/",
       "project": "ironic",
       "service_type": "baremetal"
@@ -652,7 +706,7 @@
       "aliases": [
         "messaging"
       ],
-      "api_reference": "https://developer.openstack.org/api-ref/messaging/",
+      "api_reference": "https://developer.openstack.org/api-ref/message/",
       "project": "zaqar",
       "service_type": "message"
     },
@@ -705,7 +759,7 @@
         "sharev2",
         "share"
       ],
-      "api_reference": "https://developer.openstack.org/api-ref/shared-file-systems/",
+      "api_reference": "https://developer.openstack.org/api-ref/shared-file-system/",
       "project": "manila",
       "service_type": "shared-file-system"
     },
@@ -723,7 +777,8 @@
       "aliases": [
         "volumev3",
         "volumev2",
-        "volume"
+        "volume",
+        "block-store"
       ],
       "api_reference": "https://developer.openstack.org/api-ref/block-storage/",
       "project": "cinder",
@@ -739,7 +794,8 @@
     },
     {
       "aliases": [
-        "metering"
+        "metering",
+        "telemetry"
       ],
       "api_reference": "https://docs.openstack.org/developer/ceilometer/webapi/index.html",
       "project": "ceilometer",
@@ -778,7 +834,7 @@
       "aliases": [
         "container"
       ],
-      "api_reference": "https://git.openstack.org/cgit/openstack/zun/tree/api-ref/source",
+      "api_reference": "https://developer.openstack.org/api-ref/application-container/",
       "project": "zun",
       "service_type": "application-container"
     },
@@ -810,7 +866,7 @@
       "aliases": [
         "monitoring-log-api"
       ],
-      "api_reference": "https://developer.openstack.org/api-ref/monitoring-log-api/",
+      "api_reference": "https://developer.openstack.org/api-ref/monitoring-logging/",
       "project": "monasca-log-api",
       "service_type": "monitoring-logging"
     },
@@ -820,7 +876,7 @@
       "service_type": "monitoring"
     },
     {
-      "api_reference": "https://developer.openstack.org/api-ref/monitoring-events-api/",
+      "api_reference": "https://developer.openstack.org/api-ref/monitoring-events/",
       "project": "monasca-events-api",
       "service_type": "monitoring-events"
     },
@@ -829,8 +885,21 @@
       "project": "nova",
       "secondary": true,
       "service_type": "placement"
+    },
+    {
+      "aliases": [
+        "ha"
+      ],
+      "api_reference": "https://developer.openstack.org/api-ref/instance-ha/",
+      "project": "masakari",
+      "service_type": "instance-ha"
+    },
+    {
+      "api_reference": "https://developer.openstack.org/api-ref/reservation/",
+      "project": "blazar",
+      "service_type": "reservation"
     }
   ],
-  "sha": "e9b1b4a14ac74c44a2d145072ca195d34766a5e5",
-  "version": "2017-08-17T14:25:08.515079"
+  "sha": "6c2697de1636dc2dfc5a7ee64d29e8185fcb784f",
+  "version": "2018-02-14T15:26:17.931502"
 }
