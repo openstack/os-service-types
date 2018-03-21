@@ -63,6 +63,9 @@
       "event",
       "events"
     ],
+    "function-engine": [
+      "function-engine"
+    ],
     "identity": [
       "identity"
     ],
@@ -396,6 +399,11 @@
       "project": "panko",
       "service_type": "event"
     },
+    "qinling": {
+      "api_reference": "https://developer.openstack.org/api-ref/function-engine/",
+      "project": "qinling",
+      "service_type": "function-engine"
+    },
     "sahara": {
       "api_reference": "https://developer.openstack.org/api-ref/data-processing/",
       "project": "sahara",
@@ -593,6 +601,9 @@
     ],
     "panko": [
       "event"
+    ],
+    "qinling": [
+      "function-engine"
     ],
     "sahara": [
       "data-processing"
@@ -898,8 +909,13 @@
       "api_reference": "https://developer.openstack.org/api-ref/reservation/",
       "project": "blazar",
       "service_type": "reservation"
+    },
+    {
+      "api_reference": "https://developer.openstack.org/api-ref/function-engine/",
+      "project": "qinling",
+      "service_type": "function-engine"
     }
   ],
-  "sha": "6c2697de1636dc2dfc5a7ee64d29e8185fcb784f",
-  "version": "2018-02-14T15:26:17.931502"
+  "sha": "5b97acc64ffda1d67232e930a4aa4a5350758831",
+  "version": "2018-03-21T12:56:54.053693"
 }
