@@ -77,6 +77,15 @@ class ServiceDataMixin(object):
             is_known=True, is_alias=False, is_official=True,
             is_secondary=False, all_services=['block-storage'],
             project='cinder')),
+        ('block_storage', dict(
+            service_type='block_storage', official='block-storage',
+            all_types=['block-storage', 'volumev3', 'volumev2', 'volume',
+                       'block-store'],
+            api_reference='block-storage', api_reference_project=None,
+            aliases=['volumev3', 'volumev2', 'volume', 'block-store'],
+            is_known=True, is_alias=False, is_official=True,
+            is_secondary=False, all_services=['block-storage'],
+            project='cinder')),
         ('network', dict(
             service_type='network', official='network', aliases=[],
             all_types=['network'],

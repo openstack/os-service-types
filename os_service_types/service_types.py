@@ -23,6 +23,10 @@ BUILTIN_DATA = os_service_types.data.read_data('service-types.json')
 SERVICE_TYPES_URL = "https://service-types.openstack.org/service-types.json"
 
 
+def _normalize_type(service_type):
+    return service_type.replace('_', '-')
+
+
 class ServiceTypes(object):
     """Encapsulation of the OpenStack Service Types Authority data.
 
@@ -120,6 +124,7 @@ class ServiceTypes(object):
         :param str service_type: The official service-type to get data for.
         :returns dict: Service data for the service or None if not found.
         """
+        service_type = _normalize_type(service_type)
         for service in self._service_types_data['services']:
             if service_type == service['service_type']:
                 return service
@@ -150,6 +155,7 @@ class ServiceTypes(object):
         :param str service_type: The service-type to test.
         :returns bool: True if it's an alias type, False otherwise.
         """
+        service_type = _normalize_type(service_type)
         return service_type in self._service_types_data['reverse']
 
     def is_known(self, service_type):
@@ -199,6 +205,7 @@ class ServiceTypes(object):
         :param str service_type: An official service-type.
         :returns list: List of aliases, or empty list if there are none.
         """
+        service_type = _normalize_type(service_type)
         return self._service_types_data['forward'].get(service_type, [])
 
     def get_service_type(self, service_type):
@@ -207,6 +214,7 @@ class ServiceTypes(object):
         :param str service_type: A potential service-type.
         :returns str: The official service-type, or None if there is no match.
         """
+        service_type = _normalize_type(service_type)
         if self.is_official(service_type):
             return service_type
         official = self._service_types_data['reverse'].get(service_type)
@@ -221,6 +229,7 @@ class ServiceTypes(object):
         :param str service_type: The service-type or alias to get data for.
         :returns dict: Service data for the service or None if not found.
         """
+        service_type = _normalize_type(service_type)
         if not self.is_known(service_type):
             return [service_type]
         return self.all_types_by_service_type[
@@ -232,6 +241,7 @@ class ServiceTypes(object):
         :param str service_type: An official service-type or alias.
         :returns str: The OpenStack project name or None if there is no match.
         """
+        service_type = _normalize_type(service_type)
         service = self.get_service_data(service_type)
         if service:
             return service['project']
