@@ -13,7 +13,7 @@ version of the data to use in case network access is for some reason not
 possible and local caching of the fetched data.
 
 * Free software: Apache license
-* Documentation: http://docs.openstack.org/developer/os-service-types
+* Documentation: https://docs.openstack.org/os-service-types/latest/
 * Source: http://git.openstack.org/cgit/openstack/os-service-types
 * Bugs: https://storyboard.openstack.org/#!/project/904
 
