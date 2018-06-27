@@ -16,5 +16,6 @@ possible and local caching of the fetched data.
 * Documentation: https://docs.openstack.org/os-service-types/latest/
 * Source: http://git.openstack.org/cgit/openstack/os-service-types
 * Bugs: https://storyboard.openstack.org/#!/project/904
+* Release notes: https://docs.openstack.org/releasenotes/os-service-types/
 
 .. _OpenStack Service Types Authority: https://service-types.openstack.org/
