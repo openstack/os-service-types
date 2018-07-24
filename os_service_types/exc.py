@@ -31,3 +31,11 @@ class AliasUsageWarning(Warning):
     Requested service_type {given} is an old alias. Please update your
     code to reference the official service_type {official}.
     """
+
+
+class UnofficialUsageWarning(Warning):
+    """Use of unofficial service-types is discouraged."""
+
+    details = """
+    Requested service_type {given} is not a known official OpenStack project.
+    """

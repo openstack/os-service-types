@@ -208,16 +208,24 @@ class ServiceTypes(object):
         service_type = _normalize_type(service_type)
         return self._service_types_data['forward'].get(service_type, [])
 
-    def get_service_type(self, service_type):
+    def get_service_type(self, service_type, permissive=False):
         """Given a possible service_type, return the official type.
 
         :param str service_type: A potential service-type.
+        :param bool permissive:
+            Return the original type if the given service_type is not found.
         :returns str: The official service-type, or None if there is no match.
         """
         service_type = _normalize_type(service_type)
         if self.is_official(service_type):
             return service_type
         official = self._service_types_data['reverse'].get(service_type)
+        if permissive and official is None:
+            if self._warn:
+                exc.warn(
+                    exc.UnofficialUsageWarning,
+                    given=service_type)
+            return service_type
         if self._warn:
             exc.warn(
                 exc.AliasUsageWarning, given=service_type, official=official)

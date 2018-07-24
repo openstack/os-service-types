@@ -118,6 +118,12 @@ class ServiceDataMixin(object):
             self.assertIsNone(
                 self.service_types.get_service_type(self.service_type))
 
+    def test_get_service_type_permissive(self):
+        self.assertEqual(
+            self.official or self.service_type,
+            self.service_types.get_service_type(
+                self.service_type, permissive=True))
+
     def test_get_aliases(self):
         self.assertEqual(
             self.aliases,
