@@ -42,7 +42,8 @@
     ],
     "container-infrastructure-management": [
       "container-infrastructure-management",
-      "container-infrastructure"
+      "container-infrastructure",
+      "container-infra"
     ],
     "data-processing": [
       "data-processing"
@@ -175,7 +176,8 @@
       "cluster"
     ],
     "container-infrastructure-management": [
-      "container-infrastructure"
+      "container-infrastructure",
+      "container-infra"
     ],
     "event": [
       "events"
@@ -315,7 +317,8 @@
     },
     "magnum": {
       "aliases": [
-        "container-infrastructure"
+        "container-infrastructure",
+        "container-infra"
       ],
       "api_reference": "https://developer.openstack.org/api-ref/container-infrastructure-management/",
       "project": "magnum",
@@ -494,6 +497,7 @@
     "block-store": "block-storage",
     "cluster": "clustering",
     "container": "application-container",
+    "container-infra": "container-infrastructure-management",
     "container-infrastructure": "container-infrastructure-management",
     "events": "event",
     "ha": "instance-ha",
@@ -728,7 +732,8 @@
     },
     {
       "aliases": [
-        "container-infrastructure"
+        "container-infrastructure",
+        "container-infra"
       ],
       "api_reference": "https://developer.openstack.org/api-ref/container-infrastructure-management/",
       "project": "magnum",
@@ -916,6 +921,6 @@
       "service_type": "function-engine"
     }
   ],
-  "sha": "5b97acc64ffda1d67232e930a4aa4a5350758831",
-  "version": "2018-03-21T12:56:54.053693"
+  "sha": "23fd2d542add37a1b3ff5b03daca64fb1b4dc50a",
+  "version": "2018-07-24T00:07:00.591099"
 }
