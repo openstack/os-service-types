@@ -24,7 +24,8 @@ SERVICE_TYPES_URL = "https://service-types.openstack.org/service-types.json"
 
 
 def _normalize_type(service_type):
-    return service_type.replace('_', '-')
+    if service_type:
+        return service_type.replace('_', '-')
 
 
 class ServiceTypes(object):
