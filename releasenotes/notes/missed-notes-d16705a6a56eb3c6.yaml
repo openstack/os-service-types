@@ -1,0 +1,11 @@
+---
+features:
+  - |
+    Added ``permissive`` flag to ``get_service_type`` defaulting to ``False``
+    to allow returning the given type instead of ``None`` if the given type
+    is unknown.
+  - |
+    Added ``container-infra`` alias for
+    ``container-infrastructure-management``.
+  - |
+    Added ``function-engine`` service type for ``qinling`` project.
