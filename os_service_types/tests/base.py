@@ -18,7 +18,6 @@
 import copy
 import datetime
 
-import keystoneauth1.session
 from oslotest import base
 
 import os_service_types.service_types
@@ -29,9 +28,6 @@ class TestCase(base.BaseTestCase):
 
     def setUp(self):
         super(TestCase, self).setUp()
-
-        # use keystoneauth1 to get a Sessiom with no auth information
-        self.session = keystoneauth1.session.Session()
 
         self.builtin_content = os_service_types.service_types.BUILTIN_DATA
         self.builtin_version = self.builtin_content['version']
