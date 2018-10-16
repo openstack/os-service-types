@@ -17,6 +17,8 @@
 
 import copy
 import datetime
+import os
+import tempfile
 
 from oslotest import base
 
@@ -231,3 +233,19 @@ class ServiceDataMixin(object):
             self.assertEqual(
                 data,
                 self.service_types.get_service_data(self.all_services[index]))
+
+
+class TemporaryFileMixin(base.BaseTestCase):
+
+    def create_temp_file(self, mode='w', suffix='', prefix='tmp', dir=None,
+                         text=False, delete=True):
+        fd, name = tempfile.mkstemp(suffix=suffix, prefix=prefix, dir=dir,
+                                    text=text)
+        fd = os.fdopen(fd, mode)
+        if delete:
+            self.addCleanup(self._delete_temp, fd, name)
+        return fd, name
+
+    def _delete_temp(self, fd, name):
+        fd.close()
+        os.unlink(name)
