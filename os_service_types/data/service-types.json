@@ -402,6 +402,11 @@
       "project": "panko",
       "service_type": "event"
     },
+    "placement": {
+      "api_reference": "https://developer.openstack.org/api-ref/placement/",
+      "project": "placement",
+      "service_type": "placement"
+    },
     "qinling": {
       "api_reference": "https://developer.openstack.org/api-ref/function-engine/",
       "project": "qinling",
@@ -597,14 +602,16 @@
       "network"
     ],
     "nova": [
-      "compute",
-      "placement"
+      "compute"
     ],
     "octavia": [
       "load-balancer"
     ],
     "panko": [
       "event"
+    ],
+    "placement": [
+      "placement"
     ],
     "qinling": [
       "function-engine"
@@ -898,8 +905,7 @@
     },
     {
       "api_reference": "https://developer.openstack.org/api-ref/placement/",
-      "project": "nova",
-      "secondary": true,
+      "project": "placement",
       "service_type": "placement"
     },
     {
@@ -921,6 +927,6 @@
       "service_type": "function-engine"
     }
   ],
-  "sha": "23fd2d542add37a1b3ff5b03daca64fb1b4dc50a",
-  "version": "2018-07-24T00:07:00.591099"
+  "sha": "74453588480febee6cfedc88bc99bf9aa72c1cff",
+  "version": "2018-11-01T14:56:36.742286"
 }

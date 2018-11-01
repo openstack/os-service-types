@@ -48,7 +48,7 @@ class ServiceDataMixin(object):
             service_type='compute', official='compute', aliases=[],
             all_types=['compute'],
             api_reference='compute', api_reference_project=None,
-            is_secondary=False, all_services=['compute', 'placement'],
+            is_secondary=False, all_services=['compute'],
             is_known=True, is_alias=False, is_official=True, project='nova')),
         ('volumev2', dict(
             service_type='volumev2', official='block-storage', aliases=[],
@@ -93,10 +93,10 @@ class ServiceDataMixin(object):
             project='neutron')),
         ('placement', dict(
             service_type='placement', official='placement', aliases=[],
-            all_types=['placement'], all_services=['compute', 'placement'],
+            all_types=['placement'], all_services=['placement'],
             api_reference='placement', api_reference_project=None,
-            is_known=True, is_alias=False, is_official=True, is_secondary=True,
-            project='nova')),
+            is_known=True, is_alias=False, is_official=True,
+            is_secondary=False, project='placement')),
         ('missing', dict(
             service_type='missing', official=None,
             aliases=[], all_services=[],
