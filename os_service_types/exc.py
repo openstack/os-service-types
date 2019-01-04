@@ -12,10 +12,11 @@
 # implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-__all__ = ['warn', 'AliasUsageWarning']
 
 import textwrap
 import warnings
+
+__all__ = ['warn', 'AliasUsageWarning']
 
 
 def warn(warning, **kwargs):

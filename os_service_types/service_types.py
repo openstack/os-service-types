@@ -12,12 +12,13 @@
 # implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-__all__ = ['ServiceTypes']
 
 import copy
 
 import os_service_types.data
 from os_service_types import exc
+
+__all__ = ['ServiceTypes']
 
 BUILTIN_DATA = os_service_types.data.read_data('service-types.json')
 SERVICE_TYPES_URL = "https://service-types.openstack.org/service-types.json"

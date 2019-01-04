@@ -12,10 +12,11 @@
 # implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-__all__ = ['read_data']
 
 import json
 import os
+
+__all__ = ['read_data']
 
 DATA_DIR = os.path.dirname(__file__)
 
