@@ -1,5 +1,8 @@
 {
   "all_types_by_service_type": {
+    "accelerator": [
+      "accelerator"
+    ],
     "alarm": [
       "alarm",
       "alarming"
@@ -266,6 +269,11 @@
       "api_reference": "https://docs.openstack.org/developer/congress/api.html",
       "project": "congress",
       "service_type": "operator-policy"
+    },
+    "cyborg": {
+      "api_reference": "https://docs.openstack.org/cyborg/latest/admin/api.html",
+      "project": "cyborg",
+      "service_type": "accelerator"
     },
     "designate": {
       "api_reference": "https://developer.openstack.org/api-ref/dns/",
@@ -543,6 +551,9 @@
     ],
     "congress": [
       "operator-policy"
+    ],
+    "cyborg": [
+      "accelerator"
     ],
     "designate": [
       "dns"
@@ -925,8 +936,13 @@
       "api_reference": "https://developer.openstack.org/api-ref/function-engine/",
       "project": "qinling",
       "service_type": "function-engine"
+    },
+    {
+      "api_reference": "https://docs.openstack.org/cyborg/latest/admin/api.html",
+      "project": "cyborg",
+      "service_type": "accelerator"
     }
   ],
-  "sha": "74453588480febee6cfedc88bc99bf9aa72c1cff",
-  "version": "2018-11-01T14:56:36.742286"
+  "sha": "60d8d4c899b96fb48eb60040660936dfa6322382",
+  "version": "2019-01-18T17:43:16.231226"
 }
