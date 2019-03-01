@@ -3,6 +3,10 @@
     "accelerator": [
       "accelerator"
     ],
+    "admin-logic": [
+      "admin-logic",
+      "registration"
+    ],
     "alarm": [
       "alarm",
       "alarming"
@@ -156,6 +160,9 @@
     ]
   },
   "forward": {
+    "admin-logic": [
+      "registration"
+    ],
     "alarm": [
       "alarming"
     ],
@@ -219,6 +226,14 @@
     ]
   },
   "primary_service_by_project": {
+    "adjutant": {
+      "aliases": [
+        "registration"
+      ],
+      "api_reference": "https://developer.openstack.org/api-ref/admin-logic/",
+      "project": "adjutant",
+      "service_type": "admin-logic"
+    },
     "aodh": {
       "aliases": [
         "alarming"
@@ -520,6 +535,7 @@
     "monitoring-log-api": "monitoring-logging",
     "policy": "operator-policy",
     "rca": "root-cause-analysis",
+    "registration": "admin-logic",
     "resource-cluster": "clustering",
     "share": "shared-file-system",
     "sharev2": "shared-file-system",
@@ -531,6 +547,9 @@
     "workflowv2": "workflow"
   },
   "service_types_by_project": {
+    "adjutant": [
+      "admin-logic"
+    ],
     "aodh": [
       "alarm"
     ],
@@ -941,8 +960,16 @@
       "api_reference": "https://docs.openstack.org/cyborg/latest/admin/api.html",
       "project": "cyborg",
       "service_type": "accelerator"
+    },
+    {
+      "aliases": [
+        "registration"
+      ],
+      "api_reference": "https://developer.openstack.org/api-ref/admin-logic/",
+      "project": "adjutant",
+      "service_type": "admin-logic"
     }
   ],
-  "sha": "60d8d4c899b96fb48eb60040660936dfa6322382",
-  "version": "2019-01-18T17:43:16.231226"
+  "sha": "069103688825f5e658afcdb30affd71f7b992cc6",
+  "version": "2019-03-01T04:29:31.883253"
 }
