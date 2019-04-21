@@ -14,7 +14,7 @@ possible and local caching of the fetched data.
 
 * Free software: Apache license
 * Documentation: https://docs.openstack.org/os-service-types/latest/
-* Source: http://git.openstack.org/cgit/openstack/os-service-types
+* Source: https://opendev.org/openstack/os-service-types
 * Bugs: https://storyboard.openstack.org/#!/project/904
 * Release notes: https://docs.openstack.org/releasenotes/os-service-types/
 
