@@ -243,7 +243,7 @@
       "service_type": "alarm"
     },
     "barbican": {
-      "api_reference": "https://developer.openstack.org/api-ref/key-manager/",
+      "api_reference": "https://docs.openstack.org/barbican/latest/api/",
       "project": "barbican",
       "service_type": "key-manager"
     },
@@ -273,7 +273,7 @@
       "service_type": "block-storage"
     },
     "cloudkitty": {
-      "api_reference": "https://docs.openstack.org/developer/cloudkitty/webapi/root.html",
+      "api_reference": "https://docs.openstack.org/cloudkitty/latest/api-reference/index.html",
       "project": "cloudkitty",
       "service_type": "rating"
     },
@@ -281,7 +281,7 @@
       "aliases": [
         "policy"
       ],
-      "api_reference": "https://docs.openstack.org/developer/congress/api.html",
+      "api_reference": "https://docs.openstack.org/congress/latest/user/api.html",
       "project": "congress",
       "service_type": "operator-policy"
     },
@@ -324,7 +324,7 @@
       "service_type": "baremetal"
     },
     "ironic-inspector": {
-      "api_reference": "https://docs.openstack.org/developer/ironic-inspector/http-api.html",
+      "api_reference": "https://docs.openstack.org/ironic-inspector/latest/user/http-api.html",
       "project": "ironic-inspector",
       "service_type": "baremetal-introspection"
     },
@@ -368,7 +368,7 @@
       "aliases": [
         "workflowv2"
       ],
-      "api_reference": "https://docs.openstack.org/developer/mistral/developer/webapi/index.html",
+      "api_reference": "https://docs.openstack.org/mistral/latest/api/index.html",
       "project": "mistral",
       "service_type": "workflow"
     },
@@ -458,7 +458,7 @@
       "aliases": [
         "application_deployment"
       ],
-      "api_reference": "https://docs.openstack.org/developer/solum/develop_applications/webapi/index.html",
+      "api_reference": "https://docs.openstack.org/solum/latest/admin/webapi/index.html",
       "project": "solum",
       "service_type": "application-deployment"
     },
@@ -476,7 +476,7 @@
       "aliases": [
         "tricircle"
       ],
-      "api_reference": "https://docs.openstack.org/developer/tricircle/api_v1.html",
+      "api_reference": "https://docs.openstack.org/tricircle/latest/admin/api_v1.html",
       "project": "tricircle",
       "service_type": "multi-region-network-automation"
     },
@@ -489,7 +489,7 @@
       "aliases": [
         "rca"
       ],
-      "api_reference": "https://docs.openstack.org/developer/vitrage/vitrage-api.html",
+      "api_reference": "https://docs.openstack.org/vitrage/latest/contributor/vitrage-api.html",
       "project": "vitrage",
       "service_type": "root-cause-analysis"
     },
@@ -497,7 +497,7 @@
       "aliases": [
         "infra-optim"
       ],
-      "api_reference": "https://docs.openstack.org/developer/watcher/webapi/v1.html",
+      "api_reference": "https://developer.openstack.org/api-ref/resource-optimization/",
       "project": "watcher",
       "service_type": "resource-optimization"
     },
@@ -732,12 +732,12 @@
       "service_type": "baremetal"
     },
     {
-      "api_reference": "https://docs.openstack.org/developer/ironic-inspector/http-api.html",
+      "api_reference": "https://docs.openstack.org/ironic-inspector/latest/user/http-api.html",
       "project": "ironic-inspector",
       "service_type": "baremetal-introspection"
     },
     {
-      "api_reference": "https://developer.openstack.org/api-ref/key-manager/",
+      "api_reference": "https://docs.openstack.org/barbican/latest/api/",
       "project": "barbican",
       "service_type": "key-manager"
     },
@@ -750,7 +750,7 @@
       "aliases": [
         "infra-optim"
       ],
-      "api_reference": "https://docs.openstack.org/developer/watcher/webapi/v1.html",
+      "api_reference": "https://developer.openstack.org/api-ref/resource-optimization/",
       "project": "watcher",
       "service_type": "resource-optimization"
     },
@@ -790,12 +790,12 @@
       "aliases": [
         "workflowv2"
       ],
-      "api_reference": "https://docs.openstack.org/developer/mistral/developer/webapi/index.html",
+      "api_reference": "https://docs.openstack.org/mistral/latest/api/index.html",
       "project": "mistral",
       "service_type": "workflow"
     },
     {
-      "api_reference": "https://docs.openstack.org/developer/cloudkitty/webapi/root.html",
+      "api_reference": "https://docs.openstack.org/cloudkitty/latest/api-reference/index.html",
       "project": "cloudkitty",
       "service_type": "rating"
     },
@@ -803,7 +803,7 @@
       "aliases": [
         "policy"
       ],
-      "api_reference": "https://docs.openstack.org/developer/congress/api.html",
+      "api_reference": "https://docs.openstack.org/congress/latest/user/api.html",
       "project": "congress",
       "service_type": "operator-policy"
     },
@@ -866,7 +866,7 @@
       "aliases": [
         "application_deployment"
       ],
-      "api_reference": "https://docs.openstack.org/developer/solum/develop_applications/webapi/index.html",
+      "api_reference": "https://docs.openstack.org/solum/latest/admin/webapi/index.html",
       "project": "solum",
       "service_type": "application-deployment"
     },
@@ -874,7 +874,7 @@
       "aliases": [
         "tricircle"
       ],
-      "api_reference": "https://docs.openstack.org/developer/tricircle/api_v1.html",
+      "api_reference": "https://docs.openstack.org/tricircle/latest/admin/api_v1.html",
       "project": "tricircle",
       "service_type": "multi-region-network-automation"
     },
@@ -895,7 +895,7 @@
       "aliases": [
         "rca"
       ],
-      "api_reference": "https://docs.openstack.org/developer/vitrage/vitrage-api.html",
+      "api_reference": "https://docs.openstack.org/vitrage/latest/contributor/vitrage-api.html",
       "project": "vitrage",
       "service_type": "root-cause-analysis"
     },
@@ -970,6 +970,6 @@
       "service_type": "admin-logic"
     }
   ],
-  "sha": "069103688825f5e658afcdb30affd71f7b992cc6",
-  "version": "2019-03-01T04:29:31.883253"
+  "sha": "4a8e2d261fb5a4283d7d0eae9c39ead15dfd799c",
+  "version": "2019-05-01T19:53:21.498745"
 }
