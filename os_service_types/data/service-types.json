@@ -230,7 +230,7 @@
       "aliases": [
         "registration"
       ],
-      "api_reference": "https://developer.openstack.org/api-ref/admin-logic/",
+      "api_reference": "https://docs.openstack.org/api-ref/admin-logic/",
       "project": "adjutant",
       "service_type": "admin-logic"
     },
@@ -248,7 +248,7 @@
       "service_type": "key-manager"
     },
     "blazar": {
-      "api_reference": "https://developer.openstack.org/api-ref/reservation/",
+      "api_reference": "https://docs.openstack.org/api-ref/reservation/",
       "project": "blazar",
       "service_type": "reservation"
     },
@@ -268,7 +268,7 @@
         "volume",
         "block-store"
       ],
-      "api_reference": "https://developer.openstack.org/api-ref/block-storage/",
+      "api_reference": "https://docs.openstack.org/api-ref/block-storage/",
       "project": "cinder",
       "service_type": "block-storage"
     },
@@ -291,27 +291,27 @@
       "service_type": "accelerator"
     },
     "designate": {
-      "api_reference": "https://developer.openstack.org/api-ref/dns/",
+      "api_reference": "https://docs.openstack.org/api-ref/dns/",
       "project": "designate",
       "service_type": "dns"
     },
     "ec2-api": {
-      "api_reference": "https://developer.openstack.org/api-ref/ec2-api/",
+      "api_reference": "https://docs.openstack.org/api-ref/ec2-api/",
       "project": "ec2-api",
       "service_type": "ec2-api"
     },
     "freezer-api": {
-      "api_reference": "https://developer.openstack.org/api-ref/backup/",
+      "api_reference": "https://docs.openstack.org/api-ref/backup/",
       "project": "freezer-api",
       "service_type": "backup"
     },
     "glance": {
-      "api_reference": "https://developer.openstack.org/api-ref/image/",
+      "api_reference": "https://docs.openstack.org/api-ref/image/",
       "project": "glance",
       "service_type": "image"
     },
     "heat": {
-      "api_reference": "https://developer.openstack.org/api-ref/orchestration/",
+      "api_reference": "https://docs.openstack.org/api-ref/orchestration/",
       "project": "heat",
       "service_type": "orchestration"
     },
@@ -319,7 +319,7 @@
       "aliases": [
         "bare-metal"
       ],
-      "api_reference": "https://developer.openstack.org/api-ref/baremetal/",
+      "api_reference": "https://docs.openstack.org/api-ref/baremetal/",
       "project": "ironic",
       "service_type": "baremetal"
     },
@@ -329,12 +329,12 @@
       "service_type": "baremetal-introspection"
     },
     "karbor": {
-      "api_reference": "https://developer.openstack.org/api-ref/data-protection-orchestration/",
+      "api_reference": "https://docs.openstack.org/api-ref/data-protection-orchestration/",
       "project": "karbor",
       "service_type": "data-protection-orchestration"
     },
     "keystone": {
-      "api_reference": "https://developer.openstack.org/api-ref/identity/",
+      "api_reference": "https://docs.openstack.org/api-ref/identity/",
       "project": "keystone",
       "service_type": "identity"
     },
@@ -343,7 +343,7 @@
         "container-infrastructure",
         "container-infra"
       ],
-      "api_reference": "https://developer.openstack.org/api-ref/container-infrastructure-management/",
+      "api_reference": "https://docs.openstack.org/api-ref/container-infrastructure-management/",
       "project": "magnum",
       "service_type": "container-infrastructure-management"
     },
@@ -352,7 +352,7 @@
         "sharev2",
         "share"
       ],
-      "api_reference": "https://developer.openstack.org/api-ref/shared-file-system/",
+      "api_reference": "https://docs.openstack.org/api-ref/shared-file-system/",
       "project": "manila",
       "service_type": "shared-file-system"
     },
@@ -360,7 +360,7 @@
       "aliases": [
         "ha"
       ],
-      "api_reference": "https://developer.openstack.org/api-ref/instance-ha/",
+      "api_reference": "https://docs.openstack.org/api-ref/instance-ha/",
       "project": "masakari",
       "service_type": "instance-ha"
     },
@@ -373,12 +373,12 @@
       "service_type": "workflow"
     },
     "monasca-api": {
-      "api_reference": "https://developer.openstack.org/api-ref/monitoring/",
+      "api_reference": "https://docs.openstack.org/api-ref/monitoring/",
       "project": "monasca-api",
       "service_type": "monitoring"
     },
     "monasca-events-api": {
-      "api_reference": "https://developer.openstack.org/api-ref/monitoring-events/",
+      "api_reference": "https://docs.openstack.org/api-ref/monitoring-events/",
       "project": "monasca-events-api",
       "service_type": "monitoring-events"
     },
@@ -386,34 +386,34 @@
       "aliases": [
         "monitoring-log-api"
       ],
-      "api_reference": "https://developer.openstack.org/api-ref/monitoring-logging/",
+      "api_reference": "https://docs.openstack.org/api-ref/monitoring-logging/",
       "project": "monasca-log-api",
       "service_type": "monitoring-logging"
     },
     "murano": {
-      "api_reference": "https://developer.openstack.org/api-ref/application-catalog/",
+      "api_reference": "https://docs.openstack.org/api-ref/application-catalog/",
       "project": "murano",
       "service_type": "application-catalog"
     },
     "neutron": {
-      "api_reference": "https://developer.openstack.org/api-ref/network/",
+      "api_reference": "https://docs.openstack.org/api-ref/network/",
       "api_reference_project": "neutron-lib",
       "project": "neutron",
       "service_type": "network"
     },
     "neutron-lib": {
-      "api_reference": "https://developer.openstack.org/api-ref/network/",
+      "api_reference": "https://docs.openstack.org/api-ref/network/",
       "api_reference_project": "neutron-lib",
       "project": "neutron",
       "service_type": "network"
     },
     "nova": {
-      "api_reference": "https://developer.openstack.org/api-ref/compute/",
+      "api_reference": "https://docs.openstack.org/api-ref/compute/",
       "project": "nova",
       "service_type": "compute"
     },
     "octavia": {
-      "api_reference": "https://developer.openstack.org/api-ref/load-balancer/",
+      "api_reference": "https://docs.openstack.org/api-ref/load-balancer/",
       "project": "octavia",
       "service_type": "load-balancer"
     },
@@ -426,22 +426,22 @@
       "service_type": "event"
     },
     "placement": {
-      "api_reference": "https://developer.openstack.org/api-ref/placement/",
+      "api_reference": "https://docs.openstack.org/api-ref/placement/",
       "project": "placement",
       "service_type": "placement"
     },
     "qinling": {
-      "api_reference": "https://developer.openstack.org/api-ref/function-engine/",
+      "api_reference": "https://docs.openstack.org/api-ref/function-engine/",
       "project": "qinling",
       "service_type": "function-engine"
     },
     "sahara": {
-      "api_reference": "https://developer.openstack.org/api-ref/data-processing/",
+      "api_reference": "https://docs.openstack.org/api-ref/data-processing/",
       "project": "sahara",
       "service_type": "data-processing"
     },
     "searchlight": {
-      "api_reference": "https://developer.openstack.org/api-ref/search/",
+      "api_reference": "https://docs.openstack.org/api-ref/search/",
       "project": "searchlight",
       "service_type": "search"
     },
@@ -450,7 +450,7 @@
         "resource-cluster",
         "cluster"
       ],
-      "api_reference": "https://developer.openstack.org/api-ref/clustering/",
+      "api_reference": "https://docs.openstack.org/api-ref/clustering/",
       "project": "senlin",
       "service_type": "clustering"
     },
@@ -463,12 +463,12 @@
       "service_type": "application-deployment"
     },
     "swift": {
-      "api_reference": "https://developer.openstack.org/api-ref/object-store/",
+      "api_reference": "https://docs.openstack.org/api-ref/object-store/",
       "project": "swift",
       "service_type": "object-store"
     },
     "tacker": {
-      "api_reference": "https://developer.openstack.org/api-ref/nfv-orchestration/",
+      "api_reference": "https://docs.openstack.org/api-ref/nfv-orchestration/",
       "project": "tacker",
       "service_type": "nfv-orchestration"
     },
@@ -481,7 +481,7 @@
       "service_type": "multi-region-network-automation"
     },
     "trove": {
-      "api_reference": "https://developer.openstack.org/api-ref/database/",
+      "api_reference": "https://docs.openstack.org/api-ref/database/",
       "project": "trove",
       "service_type": "database"
     },
@@ -497,7 +497,7 @@
       "aliases": [
         "infra-optim"
       ],
-      "api_reference": "https://developer.openstack.org/api-ref/resource-optimization/",
+      "api_reference": "https://docs.openstack.org/api-ref/resource-optimization/",
       "project": "watcher",
       "service_type": "resource-optimization"
     },
@@ -505,7 +505,7 @@
       "aliases": [
         "messaging"
       ],
-      "api_reference": "https://developer.openstack.org/api-ref/message/",
+      "api_reference": "https://docs.openstack.org/api-ref/message/",
       "project": "zaqar",
       "service_type": "message"
     },
@@ -513,7 +513,7 @@
       "aliases": [
         "container"
       ],
-      "api_reference": "https://developer.openstack.org/api-ref/application-container/",
+      "api_reference": "https://docs.openstack.org/api-ref/application-container/",
       "project": "zun",
       "service_type": "application-container"
     }
@@ -685,27 +685,27 @@
   },
   "services": [
     {
-      "api_reference": "https://developer.openstack.org/api-ref/identity/",
+      "api_reference": "https://docs.openstack.org/api-ref/identity/",
       "project": "keystone",
       "service_type": "identity"
     },
     {
-      "api_reference": "https://developer.openstack.org/api-ref/compute/",
+      "api_reference": "https://docs.openstack.org/api-ref/compute/",
       "project": "nova",
       "service_type": "compute"
     },
     {
-      "api_reference": "https://developer.openstack.org/api-ref/image/",
+      "api_reference": "https://docs.openstack.org/api-ref/image/",
       "project": "glance",
       "service_type": "image"
     },
     {
-      "api_reference": "https://developer.openstack.org/api-ref/load-balancer/",
+      "api_reference": "https://docs.openstack.org/api-ref/load-balancer/",
       "project": "octavia",
       "service_type": "load-balancer"
     },
     {
-      "api_reference": "https://developer.openstack.org/api-ref/object-store/",
+      "api_reference": "https://docs.openstack.org/api-ref/object-store/",
       "project": "swift",
       "service_type": "object-store"
     },
@@ -714,12 +714,12 @@
         "resource-cluster",
         "cluster"
       ],
-      "api_reference": "https://developer.openstack.org/api-ref/clustering/",
+      "api_reference": "https://docs.openstack.org/api-ref/clustering/",
       "project": "senlin",
       "service_type": "clustering"
     },
     {
-      "api_reference": "https://developer.openstack.org/api-ref/data-processing/",
+      "api_reference": "https://docs.openstack.org/api-ref/data-processing/",
       "project": "sahara",
       "service_type": "data-processing"
     },
@@ -727,7 +727,7 @@
       "aliases": [
         "bare-metal"
       ],
-      "api_reference": "https://developer.openstack.org/api-ref/baremetal/",
+      "api_reference": "https://docs.openstack.org/api-ref/baremetal/",
       "project": "ironic",
       "service_type": "baremetal"
     },
@@ -742,7 +742,7 @@
       "service_type": "key-manager"
     },
     {
-      "api_reference": "https://developer.openstack.org/api-ref/ec2-api/",
+      "api_reference": "https://docs.openstack.org/api-ref/ec2-api/",
       "project": "ec2-api",
       "service_type": "ec2-api"
     },
@@ -750,7 +750,7 @@
       "aliases": [
         "infra-optim"
       ],
-      "api_reference": "https://developer.openstack.org/api-ref/resource-optimization/",
+      "api_reference": "https://docs.openstack.org/api-ref/resource-optimization/",
       "project": "watcher",
       "service_type": "resource-optimization"
     },
@@ -758,12 +758,12 @@
       "aliases": [
         "messaging"
       ],
-      "api_reference": "https://developer.openstack.org/api-ref/message/",
+      "api_reference": "https://docs.openstack.org/api-ref/message/",
       "project": "zaqar",
       "service_type": "message"
     },
     {
-      "api_reference": "https://developer.openstack.org/api-ref/application-catalog/",
+      "api_reference": "https://docs.openstack.org/api-ref/application-catalog/",
       "project": "murano",
       "service_type": "application-catalog"
     },
@@ -772,17 +772,17 @@
         "container-infrastructure",
         "container-infra"
       ],
-      "api_reference": "https://developer.openstack.org/api-ref/container-infrastructure-management/",
+      "api_reference": "https://docs.openstack.org/api-ref/container-infrastructure-management/",
       "project": "magnum",
       "service_type": "container-infrastructure-management"
     },
     {
-      "api_reference": "https://developer.openstack.org/api-ref/search/",
+      "api_reference": "https://docs.openstack.org/api-ref/search/",
       "project": "searchlight",
       "service_type": "search"
     },
     {
-      "api_reference": "https://developer.openstack.org/api-ref/dns/",
+      "api_reference": "https://docs.openstack.org/api-ref/dns/",
       "project": "designate",
       "service_type": "dns"
     },
@@ -812,17 +812,17 @@
         "sharev2",
         "share"
       ],
-      "api_reference": "https://developer.openstack.org/api-ref/shared-file-system/",
+      "api_reference": "https://docs.openstack.org/api-ref/shared-file-system/",
       "project": "manila",
       "service_type": "shared-file-system"
     },
     {
-      "api_reference": "https://developer.openstack.org/api-ref/data-protection-orchestration/",
+      "api_reference": "https://docs.openstack.org/api-ref/data-protection-orchestration/",
       "project": "karbor",
       "service_type": "data-protection-orchestration"
     },
     {
-      "api_reference": "https://developer.openstack.org/api-ref/orchestration/",
+      "api_reference": "https://docs.openstack.org/api-ref/orchestration/",
       "project": "heat",
       "service_type": "orchestration"
     },
@@ -833,7 +833,7 @@
         "volume",
         "block-store"
       ],
-      "api_reference": "https://developer.openstack.org/api-ref/block-storage/",
+      "api_reference": "https://docs.openstack.org/api-ref/block-storage/",
       "project": "cinder",
       "service_type": "block-storage"
     },
@@ -879,7 +879,7 @@
       "service_type": "multi-region-network-automation"
     },
     {
-      "api_reference": "https://developer.openstack.org/api-ref/database/",
+      "api_reference": "https://docs.openstack.org/api-ref/database/",
       "project": "trove",
       "service_type": "database"
     },
@@ -887,7 +887,7 @@
       "aliases": [
         "container"
       ],
-      "api_reference": "https://developer.openstack.org/api-ref/application-container/",
+      "api_reference": "https://docs.openstack.org/api-ref/application-container/",
       "project": "zun",
       "service_type": "application-container"
     },
@@ -900,18 +900,18 @@
       "service_type": "root-cause-analysis"
     },
     {
-      "api_reference": "https://developer.openstack.org/api-ref/nfv-orchestration/",
+      "api_reference": "https://docs.openstack.org/api-ref/nfv-orchestration/",
       "project": "tacker",
       "service_type": "nfv-orchestration"
     },
     {
-      "api_reference": "https://developer.openstack.org/api-ref/network/",
+      "api_reference": "https://docs.openstack.org/api-ref/network/",
       "api_reference_project": "neutron-lib",
       "project": "neutron",
       "service_type": "network"
     },
     {
-      "api_reference": "https://developer.openstack.org/api-ref/backup/",
+      "api_reference": "https://docs.openstack.org/api-ref/backup/",
       "project": "freezer-api",
       "service_type": "backup"
     },
@@ -919,22 +919,22 @@
       "aliases": [
         "monitoring-log-api"
       ],
-      "api_reference": "https://developer.openstack.org/api-ref/monitoring-logging/",
+      "api_reference": "https://docs.openstack.org/api-ref/monitoring-logging/",
       "project": "monasca-log-api",
       "service_type": "monitoring-logging"
     },
     {
-      "api_reference": "https://developer.openstack.org/api-ref/monitoring/",
+      "api_reference": "https://docs.openstack.org/api-ref/monitoring/",
       "project": "monasca-api",
       "service_type": "monitoring"
     },
     {
-      "api_reference": "https://developer.openstack.org/api-ref/monitoring-events/",
+      "api_reference": "https://docs.openstack.org/api-ref/monitoring-events/",
       "project": "monasca-events-api",
       "service_type": "monitoring-events"
     },
     {
-      "api_reference": "https://developer.openstack.org/api-ref/placement/",
+      "api_reference": "https://docs.openstack.org/api-ref/placement/",
       "project": "placement",
       "service_type": "placement"
     },
@@ -942,17 +942,17 @@
       "aliases": [
         "ha"
       ],
-      "api_reference": "https://developer.openstack.org/api-ref/instance-ha/",
+      "api_reference": "https://docs.openstack.org/api-ref/instance-ha/",
       "project": "masakari",
       "service_type": "instance-ha"
     },
     {
-      "api_reference": "https://developer.openstack.org/api-ref/reservation/",
+      "api_reference": "https://docs.openstack.org/api-ref/reservation/",
       "project": "blazar",
       "service_type": "reservation"
     },
     {
-      "api_reference": "https://developer.openstack.org/api-ref/function-engine/",
+      "api_reference": "https://docs.openstack.org/api-ref/function-engine/",
       "project": "qinling",
       "service_type": "function-engine"
     },
@@ -965,7 +965,7 @@
       "aliases": [
         "registration"
       ],
-      "api_reference": "https://developer.openstack.org/api-ref/admin-logic/",
+      "api_reference": "https://docs.openstack.org/api-ref/admin-logic/",
       "project": "adjutant",
       "service_type": "admin-logic"
     }

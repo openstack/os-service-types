@@ -151,7 +151,7 @@ class ServiceDataMixin(object):
         service_data = self.service_types.get_service_data(self.service_type)
         # TODO(mordred) Once all the docs have been aligned, remove
         # self.api_reference and replace with self.service_type
-        api_url = 'https://developer.openstack.org/api-ref/{api_reference}/'
+        api_url = 'https://docs.openstack.org/api-ref/{api_reference}/'
 
         # Tests self.official here, since we expect to get data back for all
         # official projects, regardless of service_type being an alias or not
@@ -170,7 +170,7 @@ class ServiceDataMixin(object):
             self.service_type)
         # TODO(mordred) Once all the docs have been aligned, remove
         # self.api_reference and replace with self.service_type
-        api_url = 'https://developer.openstack.org/api-ref/{api_reference}/'
+        api_url = 'https://docs.openstack.org/api-ref/{api_reference}/'
 
         # Tests self.is_official here, since we expect only get data back for
         # official projects.
@@ -203,7 +203,7 @@ class ServiceDataMixin(object):
             self.project)
         # TODO(mordred) Once all the docs have been aligned, remove
         # self.api_reference and replace with self.service_type
-        api_url = 'https://developer.openstack.org/api-ref/{api_reference}/'
+        api_url = 'https://docs.openstack.org/api-ref/{api_reference}/'
 
         self.assertIsNotNone(service_data)
         if self.api_reference_project:
