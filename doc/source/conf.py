@@ -44,7 +44,6 @@ copyright = u'2017, OpenStack Developers'
 repository_name = 'openstack/os-service-types'
 bug_project = '904'
 bug_tag = ''
-html_last_updated_fmt = '%Y-%m-%d %H:%M'
 
 # If true, '()' will be appended to :func: etc. cross-reference text.
 add_function_parentheses = True
