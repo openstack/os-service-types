@@ -2,7 +2,7 @@
 os-service-types
 ================
 
-Python library for consuming OpenStack sevice-types-authority data
+Python library for consuming OpenStack service-types-authority data
 
 The `OpenStack Service Types Authority`_ contains information about official
 OpenStack services and their historical ``service-type`` aliases.
