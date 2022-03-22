@@ -22,15 +22,8 @@ Tests for `os_service_types.data` module.
 
 import json
 
-import six
-
 from os_service_types import data
 from os_service_types.tests import base
-
-
-if six.PY2:
-    # Python 2 has not FileNotFoundError exception
-    FileNotFoundError = IOError
 
 
 class TestData(base.TestCase, base.TemporaryFileMixin):
