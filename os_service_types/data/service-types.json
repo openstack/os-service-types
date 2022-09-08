@@ -286,7 +286,7 @@
       "service_type": "operator-policy"
     },
     "cyborg": {
-      "api_reference": "https://docs.openstack.org/cyborg/latest/admin/api.html",
+      "api_reference": "https://docs.openstack.org/api-ref/accelerator/",
       "project": "cyborg",
       "service_type": "accelerator"
     },
@@ -957,7 +957,7 @@
       "service_type": "function-engine"
     },
     {
-      "api_reference": "https://docs.openstack.org/cyborg/latest/admin/api.html",
+      "api_reference": "https://docs.openstack.org/api-ref/accelerator/",
       "project": "cyborg",
       "service_type": "accelerator"
     },
