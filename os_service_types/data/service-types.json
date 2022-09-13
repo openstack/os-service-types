@@ -90,6 +90,9 @@
     "load-balancer": [
       "load-balancer"
     ],
+    "log-management": [
+      "log-management"
+    ],
     "message": [
       "message",
       "messaging"
@@ -485,6 +488,11 @@
       "project": "trove",
       "service_type": "database"
     },
+    "venus": {
+      "api_reference": "https://docs.openstack.org/venus/latest/",
+      "project": "venus",
+      "service_type": "log-management"
+    },
     "vitrage": {
       "aliases": [
         "rca"
@@ -669,6 +677,9 @@
     ],
     "trove": [
       "database"
+    ],
+    "venus": [
+      "log-management"
     ],
     "vitrage": [
       "root-cause-analysis"
@@ -892,6 +903,11 @@
       "service_type": "application-container"
     },
     {
+      "api_reference": "https://docs.openstack.org/venus/latest/",
+      "project": "venus",
+      "service_type": "log-management"
+    },
+    {
       "aliases": [
         "rca"
       ],
@@ -970,6 +986,6 @@
       "service_type": "admin-logic"
     }
   ],
-  "sha": "69b5e7d5c965605dacc19ee0bc7730e232d58a3d",
-  "version": "2019-07-23T14:12:22.205489"
+  "sha": "c7b857f5b4461a2938ff7ef32f83086a9b2d29c4",
+  "version": "2022-09-13T15:34:32.154125"
 }
