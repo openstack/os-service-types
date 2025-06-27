@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 # Licensed under the Apache License, Version 2.0 (the "License"); you may
 # not use this file except in compliance with the License. You may obtain
 # a copy of the License at
@@ -24,7 +22,6 @@ from os_service_types.tests import base
 
 
 class TestMisc(base.TestCase):
-
     def test_normalize(self):
         self.assertEqual('foo-bar', service_types._normalize_type('foo_bar'))
 

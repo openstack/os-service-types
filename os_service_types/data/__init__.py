@@ -22,10 +22,8 @@ DATA_DIR = os.path.dirname(__file__)
 
 
 def read_data(filename):
-    """Return data that is shipped inside the Python package.
-
-    """
+    """Return data that is shipped inside the Python package."""
 
     filepath = os.path.join(DATA_DIR, filename)
-    with open(filepath, 'r') as fd:
+    with open(filepath) as fd:
         return json.load(fd)

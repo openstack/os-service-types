@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 # Licensed under the Apache License, Version 2.0 (the "License"); you may
 # not use this file except in compliance with the License. You may obtain
 # a copy of the License at
@@ -21,6 +19,7 @@ Tests for `ServiceTypes` class remote data.
 oslotest sets up a TempHomeDir for us, so there should be no ~/.cache files
 available in these tests.
 """
+
 from requests_mock.contrib import fixture as rm_fixture
 from testscenarios import load_tests_apply_scenarios as load_tests  # noqa
 
@@ -32,20 +31,22 @@ from os_service_types.tests import base
 
 
 class TestRemote(base.TestCase, base.ServiceDataMixin):
-
     def setUp(self):
-        super(TestRemote, self).setUp()
+        super().setUp()
         # Set up a requests_mock fixture for all HTTP traffic
         adapter = self.useFixture(rm_fixture.Fixture())
         adapter.register_uri(
-            'GET', os_service_types.service_types.SERVICE_TYPES_URL,
+            'GET',
+            os_service_types.service_types.SERVICE_TYPES_URL,
             json=self.remote_content,
-            headers={'etag': self.getUniqueString('etag')})
+            headers={'etag': self.getUniqueString('etag')},
+        )
         # use keystoneauth1 to get a Sessiom with no auth information
         self.session = keystoneauth1.session.Session()
         # Make an object that fetches from the network
         self.service_types = os_service_types.ServiceTypes(
-            session=self.session)
+            session=self.session
+        )
         self.assertEqual(1, len(adapter.request_history))
 
     def test_remote_version(self):

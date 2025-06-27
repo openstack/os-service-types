@@ -29,7 +29,7 @@ def _normalize_type(service_type):
         return service_type.replace('_', '-')
 
 
-class ServiceTypes(object):
+class ServiceTypes:
     """Encapsulation of the OpenStack Service Types Authority data.
 
     The Service Types Authority data will be either pulled from its remote
@@ -57,7 +57,8 @@ class ServiceTypes(object):
     def __init__(self, session=None, only_remote=False, warn=False):
         if not session and only_remote:
             raise ValueError(
-                "only_remote was requested but no Session was provided.")
+                "only_remote was requested but no Session was provided."
+            )
         self._service_types_data = BUILTIN_DATA
         self._warn = warn
         if session:
@@ -65,7 +66,7 @@ class ServiceTypes(object):
                 response = session.get(SERVICE_TYPES_URL)
                 response.raise_for_status()
                 self._service_types_data = response.json()
-            except IOError:
+            except OSError:
                 # If we can't fetch, fall backto BUILTIN
                 if only_remote:
                     raise
@@ -106,19 +107,22 @@ class ServiceTypes(object):
     def all_types_by_service_type(self):
         "Mapping of official service type to official type and aliases."
         return copy.deepcopy(
-            self._service_types_data['all_types_by_service_type'])
+            self._service_types_data['all_types_by_service_type']
+        )
 
     @property
     def primary_service_by_project(self):
         "Mapping of project name to the primary associated service."
         return copy.deepcopy(
-            self._service_types_data['primary_service_by_project'])
+            self._service_types_data['primary_service_by_project']
+        )
 
     @property
     def service_types_by_project(self):
         "Mapping of project name to a list of all associated service-types."
         return copy.deepcopy(
-            self._service_types_data['service_types_by_project'])
+            self._service_types_data['service_types_by_project']
+        )
 
     def get_official_service_data(self, service_type):
         """Get the service data for an official service_type.
@@ -224,13 +228,12 @@ class ServiceTypes(object):
         official = self._service_types_data['reverse'].get(service_type)
         if permissive and official is None:
             if self._warn:
-                exc.warn(
-                    exc.UnofficialUsageWarning,
-                    given=service_type)
+                exc.warn(exc.UnofficialUsageWarning, given=service_type)
             return service_type
         if self._warn:
             exc.warn(
-                exc.AliasUsageWarning, given=service_type, official=official)
+                exc.AliasUsageWarning, given=service_type, official=official
+            )
         return official
 
     def get_all_types(self, service_type):
@@ -243,7 +246,8 @@ class ServiceTypes(object):
         if not self.is_known(service_type):
             return [service_type]
         return self.all_types_by_service_type[
-            self.get_service_type(service_type)]
+            self.get_service_type(service_type)
+        ]
 
     def get_project_name(self, service_type):
         """Return the OpenStack project name for a given service_type.
@@ -280,6 +284,7 @@ class ServiceTypes(object):
         """
         data = []
         for service_type in self.service_types_by_project.get(
-                project_name, []):
+            project_name, []
+        ):
             data.append(self.get_service_data(service_type))
         return data

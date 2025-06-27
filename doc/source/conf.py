@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -16,6 +15,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.abspath('../..'))
+
 # -- General configuration ----------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
@@ -23,12 +23,7 @@ sys.path.insert(0, os.path.abspath('../..'))
 extensions = [
     'sphinx.ext.autodoc',
     'openstackdocstheme',
-    #'sphinx.ext.intersphinx',
 ]
-
-# autodoc generation is a bit aggressive and a nuisance when doing heavy
-# text edit cycles.
-# execute "export SPHINX_DEBUG=1" in your terminal to disable
 
 # The suffix of source filenames.
 source_suffix = '.rst'
@@ -37,8 +32,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'os-service-types'
-copyright = u'2017, OpenStack Developers'
+project = 'os-service-types'
+copyright = '2017-, OpenStack Developers'
 
 # openstackdocstheme options
 openstackdocs_repo_name = 'openstack/os-service-types'
@@ -64,18 +59,15 @@ pygments_style = 'native'
 # html_static_path = ['static']
 html_theme = 'openstackdocs'
 
-# Output file base name for HTML help builder.
-htmlhelp_basename = '%sdoc' % project
-
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass
 # [howto/manual]).
 latex_documents = [
-    ('index',
-     '%s.tex' % project,
-     u'%s Documentation' % project,
-     u'OpenStack Foundation', 'manual'),
+    (
+        'index',
+        f'{project}.tex',
+        f'{project} Documentation',
+        'OpenStack Foundation',
+        'manual',
+    ),
 ]
-
-# Example configuration for intersphinx: refer to the Python standard library.
-#intersphinx_mapping = {'http://docs.python.org/': None}

@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 # Licensed under the Apache License, Version 2.0 (the "License"); you may
 # not use this file except in compliance with the License. You may obtain
 # a copy of the License at
@@ -18,14 +16,14 @@ test_singleton
 
 Tests for `get_service_types` singleton factory function.
 """
+
 import os_service_types
 from os_service_types.tests import base
 
 
 class TestSingleton(base.TestCase):
-
     def setUp(self):
-        super(TestSingleton, self).setUp()
+        super().setUp()
         # Make an object with no network access
         self.service_types = os_service_types.get_service_types()
 
