@@ -39,7 +39,7 @@ class TestCase(base.BaseTestCase):
         self.remote_content['version'] = self.remote_version
 
 
-class ServiceDataMixin:
+class _BaseServiceDataTest(TestCase):
     scenarios = [
         (
             'compute',

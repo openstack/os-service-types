@@ -14,9 +14,14 @@
 # limitations under the License.
 
 import copy
+from typing import TYPE_CHECKING, Optional, overload
 
 import os_service_types.data
 from os_service_types import exc
+from os_service_types import types
+
+if TYPE_CHECKING:
+    from requests import sessions
 
 __all__ = ['ServiceTypes']
 
@@ -24,9 +29,19 @@ BUILTIN_DATA = os_service_types.data.read_data('service-types.json')
 SERVICE_TYPES_URL = "https://service-types.openstack.org/service-types.json"
 
 
-def _normalize_type(service_type):
-    if service_type:
-        return service_type.replace('_', '-')
+@overload
+def _normalize_type(service_type: str) -> str: ...
+
+
+@overload
+def _normalize_type(service_type: None) -> None: ...
+
+
+def _normalize_type(service_type: str | None) -> str | None:
+    if not service_type:
+        # TODO(stephenfin): This should be an error
+        return None
+    return service_type.replace('_', '-')
 
 
 class ServiceTypes:
@@ -54,12 +69,17 @@ class ServiceTypes:
         an error fetching remote data.
     """
 
-    def __init__(self, session=None, only_remote=False, warn=False):
+    def __init__(
+        self,
+        session: Optional['sessions.Session'] = None,
+        only_remote: bool = False,
+        warn: bool = False,
+    ) -> None:
         if not session and only_remote:
             raise ValueError(
                 "only_remote was requested but no Session was provided."
             )
-        self._service_types_data = BUILTIN_DATA
+        self._service_types_data: types.ServiceTypes = BUILTIN_DATA
         self._warn = warn
         if session:
             try:
@@ -71,7 +91,7 @@ class ServiceTypes:
                 if only_remote:
                     raise
 
-    def _canonical_project_name(self, name):
+    def _canonical_project_name(self, name: str | None) -> str:
         "Convert repo name to project name."
         if name is None:
             raise ValueError("Empty project name is not allowed")
@@ -79,52 +99,54 @@ class ServiceTypes:
         return name.rpartition('/')[-1]
 
     @property
-    def url(self):
+    def url(self) -> str:
         "The URL from which the data was retrieved."
         return SERVICE_TYPES_URL
 
     @property
-    def version(self):
+    def version(self) -> str:
         "The version of the data."
         return self._service_types_data['version']
 
     @property
-    def forward(self):
+    def forward(self) -> dict[str, list[str]]:
         "Mapping service-type names to their aliases."
         return copy.deepcopy(self._service_types_data['forward'])
 
     @property
-    def reverse(self):
+    def reverse(self) -> dict[str, str]:
         "Mapping aliases to their service-type names."
         return copy.deepcopy(self._service_types_data['reverse'])
 
     @property
-    def services(self):
+    def services(self) -> list[types.Service]:
         "Full service-type data listing."
         return copy.deepcopy(self._service_types_data['services'])
 
     @property
-    def all_types_by_service_type(self):
+    def all_types_by_service_type(self) -> dict[str, list[str]]:
         "Mapping of official service type to official type and aliases."
         return copy.deepcopy(
             self._service_types_data['all_types_by_service_type']
         )
 
     @property
-    def primary_service_by_project(self):
+    def primary_service_by_project(self) -> dict[str, types.Service]:
         "Mapping of project name to the primary associated service."
         return copy.deepcopy(
             self._service_types_data['primary_service_by_project']
         )
 
     @property
-    def service_types_by_project(self):
+    def service_types_by_project(self) -> dict[str, list[str]]:
         "Mapping of project name to a list of all associated service-types."
         return copy.deepcopy(
             self._service_types_data['service_types_by_project']
         )
 
-    def get_official_service_data(self, service_type):
+    def get_official_service_data(
+        self, service_type: str
+    ) -> types.Service | None:
         """Get the service data for an official service_type.
 
         :param str service_type: The official service-type to get data for.
@@ -136,18 +158,18 @@ class ServiceTypes:
                 return service
         return None
 
-    def get_service_data(self, service_type):
+    def get_service_data(self, service_type: str) -> types.Service | None:
         """Get the service data for a given service_type.
 
         :param str service_type: The service-type or alias to get data for.
         :returns dict: Service data for the service or None if not found.
         """
-        service_type = self.get_service_type(service_type)
-        if not service_type:
+        official_service_type = self.get_service_type(service_type)
+        if not official_service_type:
             return None
-        return self.get_official_service_data(service_type)
+        return self.get_official_service_data(official_service_type)
 
-    def is_official(self, service_type):
+    def is_official(self, service_type: str) -> bool:
         """Is the given service-type an official service-type?
 
         :param str service_type: The service-type to test.
@@ -155,7 +177,7 @@ class ServiceTypes:
         """
         return self.get_official_service_data(service_type) is not None
 
-    def is_alias(self, service_type):
+    def is_alias(self, service_type: str) -> bool:
         """Is the given service-type an alias?
 
         :param str service_type: The service-type to test.
@@ -164,7 +186,7 @@ class ServiceTypes:
         service_type = _normalize_type(service_type)
         return service_type in self._service_types_data['reverse']
 
-    def is_known(self, service_type):
+    def is_known(self, service_type: str) -> bool:
         """Is the given service-type an official type or an alias?
 
         :param str service_type: The service-type to test.
@@ -172,7 +194,7 @@ class ServiceTypes:
         """
         return self.is_official(service_type) or self.is_alias(service_type)
 
-    def is_match(self, requested, found):
+    def is_match(self, requested: str, found: str) -> bool:
         """Does a requested service-type match one found in the catalog?
 
         A requested service-type matches a service-type in the catalog if
@@ -205,22 +227,24 @@ class ServiceTypes:
 
         return False
 
-    def get_aliases(self, service_type):
+    def get_aliases(self, service_type: str) -> list[str]:
         """Returns the list of aliases for a given official service-type.
 
-        :param str service_type: An official service-type.
-        :returns list: List of aliases, or empty list if there are none.
+        :param service_type: An official service-type.
+        :returns: List of aliases, or empty list if there are none.
         """
         service_type = _normalize_type(service_type)
         return self._service_types_data['forward'].get(service_type, [])
 
-    def get_service_type(self, service_type, permissive=False):
+    def get_service_type(
+        self, service_type: str, permissive: bool = False
+    ) -> str | None:
         """Given a possible service_type, return the official type.
 
-        :param str service_type: A potential service-type.
-        :param bool permissive:
+        :param service_type: A potential service-type.
+        :param permissive:
             Return the original type if the given service_type is not found.
-        :returns str: The official service-type, or None if there is no match.
+        :returns: The official service-type, or None if there is no match.
         """
         service_type = _normalize_type(service_type)
         if self.is_official(service_type):
@@ -236,7 +260,7 @@ class ServiceTypes:
             )
         return official
 
-    def get_all_types(self, service_type):
+    def get_all_types(self, service_type: str) -> list[str]:
         """Get a list of official types and all known aliases.
 
         :param str service_type: The service-type or alias to get data for.
@@ -245,15 +269,15 @@ class ServiceTypes:
         service_type = _normalize_type(service_type)
         if not self.is_known(service_type):
             return [service_type]
-        return self.all_types_by_service_type[
-            self.get_service_type(service_type)
-        ]
+        official_service_type = self.get_service_type(service_type)
+        assert official_service_type is not None
+        return self.all_types_by_service_type[official_service_type]
 
-    def get_project_name(self, service_type):
+    def get_project_name(self, service_type: str) -> str | None:
         """Return the OpenStack project name for a given service_type.
 
         :param str service_type: An official service-type or alias.
-        :returns str: The OpenStack project name or None if there is no match.
+        :returns: The OpenStack project name or None if there is no match.
         """
         service_type = _normalize_type(service_type)
         service = self.get_service_data(service_type)
@@ -261,7 +285,9 @@ class ServiceTypes:
             return service['project']
         return None
 
-    def get_service_data_for_project(self, project_name):
+    def get_service_data_for_project(
+        self, project_name: str
+    ) -> types.Service | None:
         """Return the service information associated with a project.
 
         :param name: A repository or project name in the form
@@ -273,7 +299,9 @@ class ServiceTypes:
         project_name = self._canonical_project_name(project_name)
         return self.primary_service_by_project.get(project_name)
 
-    def get_all_service_data_for_project(self, project_name):
+    def get_all_service_data_for_project(
+        self, project_name: str
+    ) -> list[types.Service]:
         """Return the information for every service associated with a project.
 
         :param name: A repository or project name in the form
@@ -286,5 +314,7 @@ class ServiceTypes:
         for service_type in self.service_types_by_project.get(
             project_name, []
         ):
-            data.append(self.get_service_data(service_type))
+            service = self.get_service_data(service_type)
+            if service:
+                data.append(service)
         return data

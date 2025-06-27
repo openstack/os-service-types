@@ -26,7 +26,7 @@ import os_service_types
 from os_service_types.tests import base
 
 
-class TestBuiltin(base.TestCase, base.ServiceDataMixin):
+class TestBuiltin(base._BaseServiceDataTest):
     def setUp(self):
         super().setUp()
         # Make an object with no network access

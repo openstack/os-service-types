@@ -30,7 +30,7 @@ import os_service_types.service_types
 from os_service_types.tests import base
 
 
-class TestRemote(base.TestCase, base.ServiceDataMixin):
+class TestRemote(base._BaseServiceDataTest):
     def setUp(self):
         super().setUp()
         # Set up a requests_mock fixture for all HTTP traffic

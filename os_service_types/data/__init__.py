@@ -16,14 +16,18 @@
 import json
 import os
 
+from os_service_types import types
+
 __all__ = ['read_data']
 
 DATA_DIR = os.path.dirname(__file__)
 
 
-def read_data(filename):
+def read_data(filename: str) -> types.ServiceTypes:
     """Return data that is shipped inside the Python package."""
 
     filepath = os.path.join(DATA_DIR, filename)
     with open(filepath) as fd:
-        return json.load(fd)
+        data: types.ServiceTypes = json.load(fd)
+
+    return data

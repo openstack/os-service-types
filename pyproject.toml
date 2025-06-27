@@ -1,3 +1,23 @@
+[tool.mypy]
+python_version = "3.10"
+show_column_numbers = true
+show_error_context = true
+strict = true
+extra_checks = true
+# keep this in-sync with 'mypy.exclude' in '.pre-commit-config.yaml'
+exclude = '''
+(?x)(
+    doc
+    | releasenotes
+  )
+'''
+
+[[tool.mypy.overrides]]
+module = ["os_service_types.tests.*"]
+disallow_subclassing_any = false
+disallow_untyped_calls = false
+disallow_untyped_defs = false
+
 [tool.ruff]
 line-length = 79
 target-version = "py310"

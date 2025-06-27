@@ -19,13 +19,11 @@ import warnings
 __all__ = ['warn', 'AliasUsageWarning']
 
 
-def warn(warning, **kwargs):
-    """Emit a warning that has builtin message text."""
-    message = textwrap.fill(textwrap.dedent(warning.details.format(**kwargs)))
-    warnings.warn(message, category=warning)
+class _BaseWarning(Warning):
+    details: str
 
 
-class AliasUsageWarning(Warning):
+class AliasUsageWarning(_BaseWarning):
     """Use of historical service-type aliases is discouraged."""
 
     details = """
@@ -34,9 +32,15 @@ class AliasUsageWarning(Warning):
     """
 
 
-class UnofficialUsageWarning(Warning):
+class UnofficialUsageWarning(_BaseWarning):
     """Use of unofficial service-types is discouraged."""
 
     details = """
     Requested service_type {given} is not a known official OpenStack project.
     """
+
+
+def warn(warning: type[_BaseWarning], **kwargs: str | None) -> None:
+    """Emit a warning that has builtin message text."""
+    message = textwrap.fill(textwrap.dedent(warning.details.format(**kwargs)))
+    warnings.warn(message, category=warning)
