@@ -1,3 +1,39 @@
+[build-system]
+requires = ["pbr>=6.1.1"]
+build-backend = "pbr.build"
+
+[project]
+name = "os-service-types"
+description = "Python library for consuming OpenStack sevice-types-authority data"
+authors = [
+    {name = "OpenStack", email = "openstack-discuss@lists.openstack.org"},
+]
+readme = {file = "README.rst", content-type = "text/x-rst"}
+license = {text = "Apache-2.0"}
+dynamic = ["version", "dependencies"]
+requires-python = ">=3.10"
+classifiers = [
+    "Environment :: OpenStack",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+
+[project.urls]
+Homepage = "https://docs.openstack.org/os-service-types/"
+Repository = "https://opendev.org/openstack/os-service-types/"
+
+[tool.setuptools]
+packages = [
+    "os_service_types"
+]
+
 [tool.mypy]
 python_version = "3.10"
 show_column_numbers = true
@@ -20,7 +56,6 @@ disallow_untyped_defs = false
 
 [tool.ruff]
 line-length = 79
-target-version = "py310"
 
 [tool.ruff.format]
 quote-style = "preserve"
