@@ -1,0 +1,5 @@
+---
+upgrade:
+  - |
+    Python 3.9 support has been dropped. The minimum version of Python now
+    supported by os-service-types is Python 3.10.
