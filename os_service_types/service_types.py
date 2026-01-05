@@ -14,13 +14,14 @@
 # limitations under the License.
 
 import copy
-from typing import TYPE_CHECKING, Optional, overload
+from typing import TYPE_CHECKING, overload
 
 import os_service_types.data
 from os_service_types import exc
 from os_service_types import types
 
 if TYPE_CHECKING:
+    from keystoneauth1 import session as ksa_session
     from requests import sessions
 
 __all__ = ['ServiceTypes']
@@ -71,7 +72,7 @@ class ServiceTypes:
 
     def __init__(
         self,
-        session: Optional['sessions.Session'] = None,
+        session: 'sessions.Session | ksa_session.Session | None' = None,
         only_remote: bool = False,
         warn: bool = False,
     ) -> None:

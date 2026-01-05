@@ -12,13 +12,14 @@
 
 __all__ = ['__version__', 'ServiceTypes']
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING
 
 import pbr.version
 
 from os_service_types.service_types import ServiceTypes
 
 if TYPE_CHECKING:
+    from keystoneauth1 import session as ksa_session
     from requests import sessions
 
 __version__ = pbr.version.VersionInfo('os-service-types').version_string()
@@ -26,7 +27,7 @@ _service_type_manager = None
 
 
 def get_service_types(
-    session: Optional['sessions.Session'] = None,
+    session: 'sessions.Session | ksa_session.Session | None' = None,
     only_remote: bool = False,
     warn: bool = False,
 ) -> ServiceTypes:
