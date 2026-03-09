@@ -9,13 +9,12 @@ authors = [
     {name = "OpenStack", email = "openstack-discuss@lists.openstack.org"},
 ]
 readme = {file = "README.rst", content-type = "text/x-rst"}
-license = {text = "Apache-2.0"}
+license = "Apache-2.0"
 dynamic = ["version", "dependencies"]
 requires-python = ">=3.10"
 classifiers = [
     "Environment :: OpenStack",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: Apache Software License",
     "Operating System :: POSIX :: Linux",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
@@ -30,10 +29,8 @@ classifiers = [
 Homepage = "https://docs.openstack.org/os-service-types/"
 Repository = "https://opendev.org/openstack/os-service-types/"
 
-[tool.setuptools]
-packages = [
-    "os_service_types"
-]
+[tool.setuptools.packages.find]
+include = ["os_service_types"]
 
 [tool.mypy]
 python_version = "3.10"
