@@ -203,6 +203,20 @@ class _BaseServiceDataTest(TestCase):
         ),
     ]
 
+    service_types: os_service_types.ServiceTypes
+    service_type: str
+    official: str | None
+    aliases: list[str]
+    all_services: list[str]
+    all_types: list[str]
+    api_reference: str | None
+    api_reference_project: str | None
+    is_known: bool
+    is_alias: bool
+    is_official: bool
+    is_secondary: bool
+    project: str | None
+
     def test_get_service_type(self):
         if self.official:
             self.assertEqual(
@@ -260,6 +274,7 @@ class _BaseServiceDataTest(TestCase):
             self.assertIsNone(service_data)
         else:
             self.assertIsNotNone(service_data)
+            assert service_data is not None
             self.assertEqual(self.project, service_data['project'])
             self.assertEqual(self.official, service_data['service_type'])
             self.assertEqual(
@@ -281,6 +296,7 @@ class _BaseServiceDataTest(TestCase):
             self.assertIsNone(service_data)
         else:
             self.assertIsNotNone(service_data)
+            assert service_data is not None
             self.assertEqual(self.project, service_data['project'])
             self.assertEqual(self.official, service_data['service_type'])
             self.assertEqual(
@@ -300,7 +316,8 @@ class _BaseServiceDataTest(TestCase):
         if self.is_secondary:
             self.skipTest("Secondary services have no project mapping")
             return
-        elif not self.project:
+
+        if not self.project:
             self.skipTest("Empty project is invalid but tested elsewhere.")
             return
 
@@ -312,6 +329,7 @@ class _BaseServiceDataTest(TestCase):
         api_url = 'https://docs.openstack.org/api-ref/{api_reference}/'
 
         self.assertIsNotNone(service_data)
+        assert service_data is not None
         if self.api_reference_project:
             self.assertEqual(
                 self.api_reference_project,

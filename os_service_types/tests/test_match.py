@@ -62,6 +62,10 @@ class TestMatch(base.TestCase):
         ),
     ]
 
+    requested: str
+    found: str
+    is_match: bool
+
     def setUp(self):
         super().setUp()
         # Make an object with no network access
