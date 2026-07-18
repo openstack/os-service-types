@@ -34,7 +34,11 @@ class TestCase(base.BaseTestCase):
 
         # Set up copies of the data so that we can verify that we got the
         # copy of it we think we should.
-        self.remote_version = datetime.datetime.utcnow().isoformat()
+        self.remote_version = (
+            datetime.datetime.now(datetime.UTC)
+            .replace(tzinfo=None)
+            .isoformat()
+        )
         self.remote_content = copy.deepcopy(self.builtin_content)
         self.remote_content['version'] = self.remote_version
 
