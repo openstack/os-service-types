@@ -102,6 +102,9 @@
       "metering",
       "telemetry"
     ],
+    "metric-storage": [
+      "metric-storage"
+    ],
     "monitoring": [
       "monitoring"
     ],
@@ -237,6 +240,11 @@
       "project": "adjutant",
       "service_type": "admin-logic"
     },
+    "aetos": {
+      "api_reference": "https://docs.openstack.org/aetos/latest/contributor/api.html",
+      "project": "aetos",
+      "service_type": "metric-storage"
+    },
     "aodh": {
       "aliases": [
         "alarming"
@@ -262,6 +270,7 @@
       ],
       "api_reference": "https://docs.openstack.org/developer/ceilometer/webapi/index.html",
       "project": "ceilometer",
+      "retired": true,
       "service_type": "meter"
     },
     "cinder": {
@@ -286,6 +295,7 @@
       ],
       "api_reference": "https://docs.openstack.org/congress/latest/user/api.html",
       "project": "congress",
+      "retired": true,
       "service_type": "operator-policy"
     },
     "cyborg": {
@@ -301,6 +311,7 @@
     "ec2-api": {
       "api_reference": "https://docs.openstack.org/api-ref/ec2-api/",
       "project": "ec2-api",
+      "retired": true,
       "service_type": "ec2-api"
     },
     "freezer-api": {
@@ -334,6 +345,7 @@
     "karbor": {
       "api_reference": "https://docs.openstack.org/api-ref/data-protection-orchestration/",
       "project": "karbor",
+      "retired": true,
       "service_type": "data-protection-orchestration"
     },
     "keystone": {
@@ -378,11 +390,13 @@
     "monasca-api": {
       "api_reference": "https://docs.openstack.org/api-ref/monitoring/",
       "project": "monasca-api",
+      "retired": true,
       "service_type": "monitoring"
     },
     "monasca-events-api": {
       "api_reference": "https://docs.openstack.org/api-ref/monitoring-events/",
       "project": "monasca-events-api",
+      "retired": true,
       "service_type": "monitoring-events"
     },
     "monasca-log-api": {
@@ -391,11 +405,13 @@
       ],
       "api_reference": "https://docs.openstack.org/api-ref/monitoring-logging/",
       "project": "monasca-log-api",
+      "retired": true,
       "service_type": "monitoring-logging"
     },
     "murano": {
       "api_reference": "https://docs.openstack.org/api-ref/application-catalog/",
       "project": "murano",
+      "retired": true,
       "service_type": "application-catalog"
     },
     "neutron": {
@@ -426,6 +442,7 @@
       ],
       "api_reference": "https://docs.openstack.org/developer/panko/webapi/index.html",
       "project": "panko",
+      "retired": true,
       "service_type": "event"
     },
     "placement": {
@@ -436,16 +453,19 @@
     "qinling": {
       "api_reference": "https://docs.openstack.org/api-ref/function-engine/",
       "project": "qinling",
+      "retired": true,
       "service_type": "function-engine"
     },
     "sahara": {
       "api_reference": "https://docs.openstack.org/api-ref/data-processing/",
       "project": "sahara",
+      "retired": true,
       "service_type": "data-processing"
     },
     "searchlight": {
       "api_reference": "https://docs.openstack.org/api-ref/search/",
       "project": "searchlight",
+      "retired": true,
       "service_type": "search"
     },
     "senlin": {
@@ -455,6 +475,7 @@
       ],
       "api_reference": "https://docs.openstack.org/api-ref/clustering/",
       "project": "senlin",
+      "retired": true,
       "service_type": "clustering"
     },
     "solum": {
@@ -463,6 +484,7 @@
       ],
       "api_reference": "https://docs.openstack.org/solum/latest/admin/webapi/index.html",
       "project": "solum",
+      "retired": true,
       "service_type": "application-deployment"
     },
     "swift": {
@@ -481,6 +503,7 @@
       ],
       "api_reference": "https://docs.openstack.org/tricircle/latest/admin/api_v1.html",
       "project": "tricircle",
+      "retired": true,
       "service_type": "multi-region-network-automation"
     },
     "trove": {
@@ -491,6 +514,7 @@
     "venus": {
       "api_reference": "https://docs.openstack.org/api-ref/log-management/",
       "project": "venus",
+      "retired": true,
       "service_type": "log-management"
     },
     "vitrage": {
@@ -499,6 +523,7 @@
       ],
       "api_reference": "https://docs.openstack.org/vitrage/latest/contributor/vitrage-api.html",
       "project": "vitrage",
+      "retired": true,
       "service_type": "root-cause-analysis"
     },
     "watcher": {
@@ -557,6 +582,9 @@
   "service_types_by_project": {
     "adjutant": [
       "admin-logic"
+    ],
+    "aetos": [
+      "metric-storage"
     ],
     "aodh": [
       "alarm"
@@ -727,11 +755,13 @@
       ],
       "api_reference": "https://docs.openstack.org/api-ref/clustering/",
       "project": "senlin",
+      "retired": true,
       "service_type": "clustering"
     },
     {
       "api_reference": "https://docs.openstack.org/api-ref/data-processing/",
       "project": "sahara",
+      "retired": true,
       "service_type": "data-processing"
     },
     {
@@ -755,6 +785,7 @@
     {
       "api_reference": "https://docs.openstack.org/api-ref/ec2-api/",
       "project": "ec2-api",
+      "retired": true,
       "service_type": "ec2-api"
     },
     {
@@ -776,6 +807,7 @@
     {
       "api_reference": "https://docs.openstack.org/api-ref/application-catalog/",
       "project": "murano",
+      "retired": true,
       "service_type": "application-catalog"
     },
     {
@@ -790,6 +822,7 @@
     {
       "api_reference": "https://docs.openstack.org/api-ref/search/",
       "project": "searchlight",
+      "retired": true,
       "service_type": "search"
     },
     {
@@ -816,6 +849,7 @@
       ],
       "api_reference": "https://docs.openstack.org/congress/latest/user/api.html",
       "project": "congress",
+      "retired": true,
       "service_type": "operator-policy"
     },
     {
@@ -830,6 +864,7 @@
     {
       "api_reference": "https://docs.openstack.org/api-ref/data-protection-orchestration/",
       "project": "karbor",
+      "retired": true,
       "service_type": "data-protection-orchestration"
     },
     {
@@ -863,6 +898,7 @@
       ],
       "api_reference": "https://docs.openstack.org/developer/ceilometer/webapi/index.html",
       "project": "ceilometer",
+      "retired": true,
       "service_type": "meter"
     },
     {
@@ -871,7 +907,13 @@
       ],
       "api_reference": "https://docs.openstack.org/developer/panko/webapi/index.html",
       "project": "panko",
+      "retired": true,
       "service_type": "event"
+    },
+    {
+      "api_reference": "https://docs.openstack.org/aetos/latest/contributor/api.html",
+      "project": "aetos",
+      "service_type": "metric-storage"
     },
     {
       "aliases": [
@@ -879,6 +921,7 @@
       ],
       "api_reference": "https://docs.openstack.org/solum/latest/admin/webapi/index.html",
       "project": "solum",
+      "retired": true,
       "service_type": "application-deployment"
     },
     {
@@ -887,6 +930,7 @@
       ],
       "api_reference": "https://docs.openstack.org/tricircle/latest/admin/api_v1.html",
       "project": "tricircle",
+      "retired": true,
       "service_type": "multi-region-network-automation"
     },
     {
@@ -905,6 +949,7 @@
     {
       "api_reference": "https://docs.openstack.org/api-ref/log-management/",
       "project": "venus",
+      "retired": true,
       "service_type": "log-management"
     },
     {
@@ -913,6 +958,7 @@
       ],
       "api_reference": "https://docs.openstack.org/vitrage/latest/contributor/vitrage-api.html",
       "project": "vitrage",
+      "retired": true,
       "service_type": "root-cause-analysis"
     },
     {
@@ -937,16 +983,19 @@
       ],
       "api_reference": "https://docs.openstack.org/api-ref/monitoring-logging/",
       "project": "monasca-log-api",
+      "retired": true,
       "service_type": "monitoring-logging"
     },
     {
       "api_reference": "https://docs.openstack.org/api-ref/monitoring/",
       "project": "monasca-api",
+      "retired": true,
       "service_type": "monitoring"
     },
     {
       "api_reference": "https://docs.openstack.org/api-ref/monitoring-events/",
       "project": "monasca-events-api",
+      "retired": true,
       "service_type": "monitoring-events"
     },
     {
@@ -970,6 +1019,7 @@
     {
       "api_reference": "https://docs.openstack.org/api-ref/function-engine/",
       "project": "qinling",
+      "retired": true,
       "service_type": "function-engine"
     },
     {
@@ -986,6 +1036,6 @@
       "service_type": "admin-logic"
     }
   ],
-  "sha": "52d438fe913eecea4e14d1e83f148cbe22edef91",
-  "version": "2024-05-08T19:22:13.804707"
+  "sha": "4606d2f1179988838284480912a06b5c6f7b3a24",
+  "version": "2026-08-31T19:09:56.751407"
 }
